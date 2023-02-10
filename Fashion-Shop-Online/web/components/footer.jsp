@@ -1,77 +1,142 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div id="footer">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets_1/css/erud_form.css"/>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" type="text/css" href="assets_1/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="assets_1/css/style-starter.css">
+<link href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
+      rel="stylesheet">
+<footer class="w3l-footer">
+    <section class="footer-inner-main">
+        <div class="footer-hny-grids py-5">
+            <div class="container py-lg-4">
+                <div class="text-txt">
+                    <div class="right-side">
+                        <div class="row footer-about">
+                            <div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+                                <a href="movies"><img class="img-fluid" src="assets_1/images/banner1.png"
+                                                      alt=""></a>
+                            </div>
+                            <div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+                                <a href="movies"><img class="img-fluid" src="assets_1/images/banner2.png"
+                                                      alt=""></a>
+                            </div>
+                            <div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+                                <a href="movies"><img class="img-fluid" src="assets_1/images/banner3.png"
+                                                      alt=""></a>
+                            </div>
+                            <div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+                                <a href="movies"><img class="img-fluid" src="assets_1/images/banner.png"
+                                                      alt=""></a>
+                            </div>
+                        </div>
+                        <div class="row footer-links">
 
-    <!-- Feedback Form -->
 
-    <div class="modal fade col-md-12" role="dialog" id="feedback_common">
-        <div class="modal-dialog">
-            <div class="modal-content" style="border-radius: 10px; margin-top: 60px;">
-                <div class="modal-header">
-                    <h2 style="margin-left: 35%">Bình luận</h2>
+                            <div class="col-md-3 col-sm-6 sub-two-right mt-5">
+                                <h6>Fashion</h6>
+                                <ul>
+                                    <li><a href="#">Entertainment</a></li>
+                                    <li><a href="#">Videos</a></li>
+                                    <li><a href="#">Collections</a></li>
+                                    <li><a href="#">Tailor</a></li>
+                                    <li><a href="#">Upcoming Collections</a></li>
+                                    <li><a href="Contact_Us.jsp">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-sm-6 sub-two-right mt-5">
+                                <h6>Information</h6>
+                                <ul>
+                                    <li><a href="home.jsp">Home</a> </li>
+                                    <li><a href="about.html">About</a> </li>
+                                    <li><a href="#">Fashion Show</a> </li>
+                                    <li><a href="#">Blogs</a> </li>
+                                    <li><a href="sign_in.html">Login</a></li>
+                                    <li><a href="Contact_Us.jsp">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-sm-6 sub-two-right mt-5">
+                                <h6>Locations</h6>
+                                <ul>
+                                    <li><a href="movies">Asia</a></li>
+                                    <li><a href="movies">France</a></li>
+                                    <li><a href="movies">Taiwan</a></li>
+                                    <li><a href="movies">United States</a></li>
+                                    <li><a href="movies">Korea</a></li>
+                                    <li><a href="movies">United Kingdom</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-sm-6 sub-two-right mt-5">
+                                <h6>Newsletter</h6>
+                                <form action="#" class="subscribe mb-3" method="post">
+                                    <input type="email" name="email" placeholder="Your Email Address" required="">
+                                    <button><span class="fa fa-envelope-o"></span></button>
+                                </form>
+                                <p>Enter your email and receive the latest news, updates and special offers from us.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form action="feedback_common">
-                        <b>Viết bình luận:</b>&nbsp;&nbsp;
-                        <div class="form-group">
-                            <textarea name="subject" placeholder="Viết bình luận.." style="height:200px ; width: 460px"></textarea>
+                            <!-- copyright -->
+
+                <div class="container">
+                    <div class="copyright-footer">
+                        <div class="columns text-lg-left">
+                            <p>&copy; 2023 MyFashionShop. All rights reserved</p>
                         </div>
-                        <b>Ảnh phản hồi:</b>&nbsp;&nbsp;
-                        <div class="form-group">
-                            <input name="imageurl" type="file" class="form-control" style="border-radius: 100px;" required="">
-                        </div>
-                        <b>Đánh giá:</b>&nbsp;&nbsp;
-                        <div class="form-group" >
-                            <select name = "star" style="border-radius: 100px;" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Chọn số sao bạn dành cho FashionShop</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <br>
-                        <center><button type="submit" class="btn btn-dark" style="padding-right: 160px;padding-left: 160px; border-radius: 100px;">Bình luận</button></center>
-                    </form>
-                    <br><br>
+
+                        <ul class="social text-lg-right">
+                            <li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                            </li>
+                            <li><a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
+                            </li>
+                            <li><a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                            </li>
+                            <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
+                    <!-- move top -->
+
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                <span class="fa fa-arrow-up" aria-hidden="true"></span>
+            </button>
+            <script>
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function () {
+                    scrollFunction()
+                };
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("movetop").style.display = "block";
+                    } else {
+                        document.getElementById("movetop").style.display = "none";
+                    }
+                }
+
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+                    <!-- /move top -->
+
         </div>
-    </div>
-<div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7448.27256631781!2d105.53745830000003!3d21.027232300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1653919437201!5m2!1svi!2s" 
-                width=90% height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <div class="info-footer">
-        <div class="content-footer">
-            <h2>Địa chỉ liên hệ</h2>
-            <p class="mt-40">HUB Hà Nội: Hoalaclink03, thôn Vân Lôi, xã Bình Yên, huyện Thạch Thất, TP. Hà Nội</p>
+        </div>
         </div>
 
-        <div class="feedback-footer">
-            <h2 class="mt-40">KingsMan lắng nghe bạn!</h2>
-            <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa</p>
-            <a data-toggle="modal" data-dismiss="modal" data-target="#feedback_common"><input class="Button-Feedback mt-16" type="submit" value="Gửi ý kiến"></a> 
-            <br>
-            <br>
-            <br>
-            <div class="contact-info">
-                <p><i class="ti-location-pin"></i>Tran Duy Hung, Ha Noi</p>
-                <p><i class="ti-mobile"></i>Phone:+0879 112 113</p>
-                <p><i class="ti-email"></i>Sondbrr123@gmail.com</p>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
 
-
-    <center>
-        <div class="col-md-6 col-lg-8">
-            <p class="copyright">
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.</p>
-        </div></center>
-</div>
-</div>
+    </section>
+</footer>

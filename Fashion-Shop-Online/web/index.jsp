@@ -86,19 +86,7 @@
                     </div> 
                 </div>
                 <!-- Blog -->
-                <div class="blog-section">
-                    <div class="content-section">
-                        <h2 class="section-heading text-white">Chúng tôi luôn mang đến những công nghệ hiện đại nhất</h2>
-                        <p class="section-sub-heading text-white">Với mong muốn lan tỏa niềm đam mê thời trang đến với mọi người </p> 
-
-                        <!-- blog list hot -->
-                        <div class="blog-list">
-
-                            <div class="clear"></div>
-                        </div> 
-                    </div>
-
-                </div>   
+       s  
                 <%@include file="components/footer.jsp" %>
                 </body>
                 </html>
