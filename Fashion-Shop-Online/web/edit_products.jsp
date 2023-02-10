@@ -243,27 +243,22 @@
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td>${m.getProduct_id()}</td>
-                                    <td>${m.getProduct_name()}</td>
-                                    <td>${m.getOriginal_prices()}</td>
-                                    <td>${m.getUpdate_date()}</td>
-                                    <td>${m.getQuantity()}</td>
-                                    <td>${m.getSeason()}</td>
+                                    <td>${m.id}</td>
+                                    <td>${m.name}</td>
+                                    <td>${m.original_price}</td>
+                                    <td>${m.update_date}</td>
+                                    <td>${m.quantity}</td>
+                                    <td>${m.season}</td>
                                     <td>
                                         <a href="#editEmployeeModal"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <input type="hidden" name="id" id="id" value="${m.getProduct_id()}">
-                                        <input type="hidden" name="name" id="name" value="${m.getProduct_name()}">
-                                        <input type="hidden" name="original_price" id="original_price" value="${m.getOriginal_prices()}">
-                                        <input type="hidden" name="sale_price" id="sale_price" value="${m.getSale_prices()}">
-                                        <input type="hidden" name="detail" id="detail" value="${m.getProduct_detail()}">
-                                        <input type="hidden" name="brief" id="brief" value="${m.getBrief_info()}">
-                                        <input type="hidden" name="updateDate" id="updateDate" value="${m.getUpdate_date()}">
-                                        <input type="hidden" name="status" id="status" value="${m.getStatus()}">
-                                        <input type="hidden" name="sex" id="sex" value="${m.getSex()}">
-                                        <input type="hidden" name="image" id="image" value="${m.getImage()}">
-                                        <input type="hidden" name="category_id" id="category_id" value="${m.getCategory_id()}">
-                                        <input type="hidden" name="season" id="season" value="${m.getSeason()}">
-                                        <input type="hidden" name="quantity" id="quantity" value="${m.getQuantity()}">
+                                        <input type="hidden" name="id" id="id" value="${m.id}">
+                                        <input type="hidden" name="name" id="name" value="${m.name}">
+                                        <input type="hidden" name="original_price" id="original_price" value="${m.original_price}">
+                                        <input type="hidden" name="sale_price" id="sale_price" value="${m.sale_price}">
+                                        <input type="hidden" name="brief" id="brief" value="${m.brief_infor}">
+                                        <input type="hidden" name="updateDate" id="updateDate" value="${m.update_date}">
+                                        <input type="hidden" name="status" id="status" value="${m.status}">
+
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
                                 </tr>
