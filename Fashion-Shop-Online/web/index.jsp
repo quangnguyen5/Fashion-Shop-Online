@@ -62,22 +62,22 @@
                     <!-- Product list -->
                     <h2 class="section-heading">Sản phẩm nổi bật</h2>
                     <div class="category-list">
-                        <a href="list?&categoryId=3"><div class="category-item category-img" style="background: url('images/ao-thun-co-tron-hieu-nike.jpg')
+                        <a href="list?&categoryId=1"><div class="category-item category-img" style="background: url('images/ao-thun-co-tron-hieu-nike.jpg')
                                                           top center / cover no-repeat">
                                 <div class="category-content">Áo</div>
                             </div></a>
 
-                        <a href="list?&categoryId=1"><div class="category-item category-img" style="background: url('images/quan-jean-nam.jpg')
+                        <a href="list?&categoryId=2"><div class="category-item category-img" style="background: url('images/quan-jean-nam.jpg')
                                                           top center / cover no-repeat">
                                 <div class="category-content">Quần</div>
                             </div></a>
 
-                        <a href="list?&categoryId=4"><div class="category-item category-img" style="background: url('images/giay_dep.jpg')
+                        <a href="list?&categoryId=3"><div class="category-item category-img" style="background: url('images/giay_dep.jpg')
                                                           top center / cover no-repeat">
                                 <div class="category-content">Giày Dép</div>
                             </div></a>
 
-                        <a href="list?&categoryId=2"><div class="category-item category-img" style="background: url('images/phu_kien.jpg')
+                        <a href="list?&categoryId=4"><div class="category-item category-img" style="background: url('images/phu_kien.jpg')
                                                           top center / cover no-repeat">
                                 <div class="category-content">Phụ kiện</div>
                             </div></a>
