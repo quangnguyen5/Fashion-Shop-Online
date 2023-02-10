@@ -23,7 +23,7 @@
 <!-- Login -->
 <div class="modal fade col-md-12" role="dialog" id="loginModal">
     <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 10px; margin-top: 200px;">
+        <div class="modal-content" style="border-radius: 10px; margin-top: 100px;">
             <div class="modal-header">
                 <h2 class="" id="loginModal" style="text-align:center; font-family: Arial"><b style="padding-left: 150px;">Đăng Nhập</b></h2><br>
             </div>
