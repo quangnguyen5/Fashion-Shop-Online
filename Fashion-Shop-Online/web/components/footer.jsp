@@ -3,6 +3,7 @@
 <div id="footer">
 
     <!-- Feedback Form -->
+
     <div class="modal fade col-md-12" role="dialog" id="feedback_common">
         <div class="modal-dialog">
             <div class="modal-content" style="border-radius: 10px; margin-top: 60px;">
@@ -31,17 +32,14 @@
                             </select>
                         </div>
                         <br>
-
-
                         <center><button type="submit" class="btn btn-dark" style="padding-right: 160px;padding-left: 160px; border-radius: 100px;">Bình luận</button></center>
-
                     </form>
                     <br><br>
                 </div>
             </div>
         </div>
     </div>
-    <div class="map">
+<div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7448.27256631781!2d105.53745830000003!3d21.027232300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1653919437201!5m2!1svi!2s" 
                 width=90% height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -49,20 +47,20 @@
     <div class="info-footer">
         <div class="content-footer">
             <h2>Địa chỉ liên hệ</h2>
-            <p class="mt-40"></p>
+            <p class="mt-40">HUB Hà Nội: Hoalaclink03, thôn Vân Lôi, xã Bình Yên, huyện Thạch Thất, TP. Hà Nội</p>
         </div>
 
         <div class="feedback-footer">
-            <h2 class="mt-40">FashionShop lắng nghe bạn!</h2>
+            <h2 class="mt-40">KingsMan lắng nghe bạn!</h2>
             <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa</p>
             <a data-toggle="modal" data-dismiss="modal" data-target="#feedback_common"><input class="Button-Feedback mt-16" type="submit" value="Gửi ý kiến"></a> 
             <br>
             <br>
             <br>
             <div class="contact-info">
-                <p><i class="ti-location-pin"></i> Ha Noi</p>
-                <p><i class="ti-mobile"></i>Phone:+</p>
-                <p><i class="ti-email"></i>@gmail.com</p>
+                <p><i class="ti-location-pin"></i>Tran Duy Hung, Ha Noi</p>
+                <p><i class="ti-mobile"></i>Phone:+0879 112 113</p>
+                <p><i class="ti-email"></i>Sondbrr123@gmail.com</p>
             </div>
         </div>
         <div class="clear"></div>
@@ -70,4 +68,10 @@
     <div class="clear"></div>
 
 
+    <center>
+        <div class="col-md-6 col-lg-8">
+            <p class="copyright">
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.</p>
+        </div></center>
+</div>
 </div>

@@ -64,7 +64,7 @@
                     <div class="category-list">
                         <a href="list?&categoryId=3"><div class="category-item category-img" style="background: url('images/ao-thun-co-tron-hieu-nike.jpg')
                                                           top center / cover no-repeat">
-                                <div class="category-content">Áo Thun</div>
+                                <div class="category-content">Áo</div>
                             </div></a>
 
                         <a href="list?&categoryId=1"><div class="category-item category-img" style="background: url('images/quan-jean-nam.jpg')
@@ -89,7 +89,7 @@
                 <div class="blog-section">
                     <div class="content-section">
                         <h2 class="section-heading text-white">Chúng tôi luôn mang đến những công nghệ hiện đại nhất</h2>
-                        <p class="section-sub-heading text-white">Công nghệ </p> 
+                        <p class="section-sub-heading text-white">Với mong muốn lan tỏa niềm đam mê thời trang đến với mọi người </p> 
 
                         <!-- blog list hot -->
                         <div class="blog-list">
