@@ -77,7 +77,7 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else {
             session.setAttribute("us", u);
-            response.sendRedirect("/list");
+            response.sendRedirect("list");
         }
     }
 
