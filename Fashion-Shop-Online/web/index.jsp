@@ -51,7 +51,53 @@
                     <h2 class="section-heading">Danh sách sản phẩm</h2>
                     <div  class="container-fluid">
                         <div class="row">
+                            <c:forEach items="${sessionScope.list4product}" var="p">
+                                <div class="col-md-2 product-down">
+                                    <div class="row">
+                                        <div class="product-item">
+                                            <div class="product-top">
+                                                <div class="reviews-rating">
 
+                                                    <c:forEach var="i" begin="0" end="4">
+                                                        <c:if test="${(p.rated_star - i) >= 1}">
+                                                            <div class="reviews-rating__star is-active"></div> 
+                                                        </c:if>
+                                                        <c:if test="${(p.rated_star - i) < 1 && (p.rated_star - i) > 0}">
+                                                            <div class="reviews-rating__star is-active is-half"></div> 
+                                                        </c:if>
+                                                        <c:if test="${(p.rated_star - i) <= 0}">
+                                                            <div class="reviews-rating__star"></div> 
+                                                        </c:if>
+
+                                                    </c:forEach>
+
+                                                </div>
+                                                <a href="" class="product-thumb">
+                                                    <a href="list-detail?productId=${p.id}&categoryId=${p.category_id}">
+                                                        <img src="${p.image}" height="365px" width="230px" alt="">
+                                                    </a>
+
+
+                                                </a>
+                                                <a href="addcart?productId=${p.id}" class="buy-now" >Mua ngay</a>
+
+                                            </div>
+                                            <div class="product-infor">
+                                                <a href="" class="product-name">${p.name}</a>
+                                                <div class="product-price">
+                                                    <c:if test="${p.sale_price != 0}">
+                                                        ${p.sale_price}đ
+                                                        <del>${p.original_price}đ</del>
+                                                    </c:if>
+                                                    <c:if test="${p.sale_price == 0}">
+                                                        ${p.original_price}đ
+                                                    </c:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
