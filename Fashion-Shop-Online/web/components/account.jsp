@@ -28,8 +28,7 @@
                 <h2 class="" id="loginModal" style="text-align:center; font-family: Arial"><b style="padding-left: 150px;">Đăng Nhập</b></h2><br>
             </div>
             <div class="modal-body">
-                <form class="login100-form validate-form">
-
+                <form action="login" method="post" class="login100-form validate-form">
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
                         <span class="label-input100">Tên Đăng Nhập</span>
                         <input class="input100" type="text" name="username" placeholder="Type your username">
@@ -54,6 +53,7 @@
                             </button>
                         </div>
                     </div>
+                </form>
                     <div class="txt1 text-center p-t-54 p-b-20">
                         <span>
                             Đăng Nhập Bằng
@@ -73,7 +73,6 @@
                         <!--  <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#ResetPasswordModal" style="float:right; text-decoration: none; border-radius: 100px;">Forgot password?</a>
                         -->
                     </div>
-                </form>
                 <br><br>
             </div>
         </div>
