@@ -17,17 +17,27 @@
             <%@include file="components/account.jsp" %>
             <!--Slider-->
 
+            
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
                     <div class="carousel-indicators">
-                        <!-- slider img -->
 
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <c:forEach begin="1" end="${sessionScope.totalSlider-1}" var="c">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${c}" aria-label="Slide ${c+1}"></button>
+                        </c:forEach>
+                       
                     </div>
 
                     <div class="carousel-inner">
 
-                        <!-- slider img -->
+                        <c:forEach items="${sessionScope.listSlider_HomePageAll}" var="s" >
+                            <div class="carousel-item ${s.id == sessionScope.sliderFirst.id ? "active" : ""}">
+                                    <a href="${s.backlink}"><img src="${s.slider_image}" class="d-block w-100" alt="..."></a>
+                                
+                            </div> 
 
+                        </c:forEach>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -39,6 +49,7 @@
                     </button>
                 </div>
             </div>
+
 
 
 
