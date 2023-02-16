@@ -1,6 +1,10 @@
 /* Reset css */
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
 
 .clear {
     clear: both;
@@ -45,7 +49,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 #header {
-    height: 46px; 
+    height: 46px;
     background-color: #000;
     position: fixed;
     top: 0;
@@ -117,7 +121,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 #nav .subnav {
-    display: none; 
+    display: none;
     position: absolute;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -262,7 +266,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin-top: 48px;
 }
 #content .category-img {
-    height: 400px; 
+    height: 400px;
     margin-top: 15px;
     margin-left: 10px;
     border-radius: 4px;
@@ -385,16 +389,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 #footer {
     background-color: #000;
+      position: absolute;
+        z-index: 2;
 }
 
 #footer .map {
-    width: 60%;
+    width: 40%;
+    max-width:400px;
     float: left;
     padding-top: 50px;
     padding-bottom: 50px;
-    padding-left: 100px;
+    padding-left: 50px;
 }
-
+#footer .map h3{
+  color: white;
+}
 #footer .info-footer {
     width: 40%;
     float: left;
@@ -411,7 +420,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 #footer .feedback-footer {
     color: #fff;
-    float: left;   
+    float: left;
     width: 40%;
     margin-left: 100px;
 }
@@ -430,7 +439,47 @@ body {font-family: Arial, Helvetica, sans-serif;}
     line-height: 1.5;
 }
 
-
+#footer .footer-social-link h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 25px;
+    width: 40%;
+}
+#footer .footer-social-link ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#footer .footer-social-link li {
+    display: inline-block;
+}
+#footer.footer-social-link a i {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 400px;
+    background: #000;
+    margin-right: 5px;
+    color: #fff;
+}
+#footer .footer-social-link a i.fa-facebook {
+    padding: 10px;
+    background-color: #3B5998;
+}
+#footer .footer-social-link a i.fa-twitter {
+    background-color: #55ACEE;
+}
+#footerfo .footer-social-link a i.fa-google-plus {
+    background-color: #DD4B39;
+}
+#footer .footer-social-link a i.fa-linkedin {
+    background-color: #0976B4;
+}
+#footer .footer-social-link a i.fa-instagram {
+    background-color: #B7242A;
+}
 /* css by son - product list */
 #wrapper{
     margin-top: 52px;
@@ -663,7 +712,7 @@ del{
     margin-bottom:10px;
     opacity: 0.8;
     border-radius: 20px;
-    margin-left: 25px; 
+    margin-left: 25px;
     margin-bottom: 25px;
 }
 /* Add some hover effects to buttons */

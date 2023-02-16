@@ -54,25 +54,25 @@
                         </div>
                     </div>
                 </form>
-                    <div class="txt1 text-center p-t-54 p-b-20">
-                        <span>
-                            Đăng Nhập Bằng
-                        </span>
-                    </div>
-                    <div class="flex-c-m">
-                        <a href="" class="login100-social-item bg1">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#" class="login100-social-item bg3">
-                            <i class="fa fa-google"></i>
-                        </a>
-                    </div>
-                    <div class="flex-col-c p-t-155">
+                <div class="txt1 text-center p-t-54 p-b-20">
+                    <span>
+                        Đăng Nhập Bằng
+                    </span>
+                </div>
+                <div class="flex-c-m">
+                    <a href="" class="login100-social-item bg1">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="login100-social-item bg3">
+                        <i class="fa fa-google"></i>
+                    </a>
+                </div>
+                <div class="flex-col-c p-t-155">
 
-                        <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#registerModal" style="float:left; text-decoration: none; border-radius: 10px;">Đăng Kí</a>
-                        <!--  <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#ResetPasswordModal" style="float:right; text-decoration: none; border-radius: 100px;">Forgot password?</a>
-                        -->
-                    </div>
+                    <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#registerModal" style="float:left; text-decoration: none; border-radius: 10px;">Đăng Kí</a>
+                    <!--  <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#ResetPasswordModal" style="float:right; text-decoration: none; border-radius: 100px;">Forgot password?</a>
+                    -->
+                </div>
                 <br><br>
             </div>
         </div>
@@ -140,10 +140,17 @@
                                         <input class="" name="gender" type="radio" value="False" required/>&nbsp; Nữ
                                     </div>
                                 </div>
-                                <br><br><center><button type="submit" class="btn btn-dark" style="padding-right: 190px;padding-left: 190px;padding-top: 15px;padding-bottom: 15px; border-radius: 100px;">Đăng ký</button></center><br><br>
+                                <br><br><center>   <div class="container-login100-form-btn">
+                                        <div class="wrap-login100-form-btn">
+                                            <div class="login100-form-bgbtn"></div>
+                                            <button class="login100-form-btn">
+                                              Đăng Kí
+                                            </button>
+                                        </div>
+                                    </div></center><br><br>
                             </div>
                         </form>
-                        <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#loginModal" style="padding-left: 150px; text-decoration: none; border-radius: 100px;">Quay lại đăng nhập</a> 
+                        <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#loginModal" style="padding-left: 120px; text-decoration: none; border-radius: 100px;">Đã có tài khoản ? Đăng Nhập</a> 
                     </div>    
                 </section>
             </div>

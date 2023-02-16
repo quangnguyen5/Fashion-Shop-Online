@@ -1,8 +1,3 @@
-<%-- 
-    Document   : MKT-left-board
-    Created on : Jun 23, 2022, 8:55:56 PM
-    Author     : son22
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="layoutSidenav_nav">
