@@ -23,7 +23,7 @@ public class ProductDAO extends DBContext {
     ResultSet rs;
 
     public ArrayList<Product> getListProductPage(int index) {
-        ArrayList<Product> listMovie = new ArrayList<>();
+        ArrayList<Product> listProduct = new ArrayList<>();
         try {
             String sql = "select * from Product order by product_id OFFSET ? ROWS FETCH NEXT 7 ROWS ONLY;";
             pstm = connection.prepareStatement(sql);
@@ -47,13 +47,13 @@ public class ProductDAO extends DBContext {
                         .rated_star(getRatedProduct(rs.getInt(1)))
                         .build();
 
-                listMovie.add(p);
+                listProduct.add(p);
             }
             System.out.println("get list done!");
         } catch (Exception e) {
             System.out.println("get list products error: " + e.getMessage());
         }
-        return listMovie;
+        return listProduct;
     }
 
     public boolean deleteProductById(String code) {
