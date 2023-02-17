@@ -86,7 +86,7 @@ public class ProductDAO extends DBContext {
             pstm.setDate(9, Date.valueOf(updateDate));
             pstm.setString(10, season);
             pstm.setString(11, sex);
-            pstm.executeUpdate();
+            pstm.executeUpdate();   
             return true;
         } catch (SQLException e) {
             System.out.println("add product error: " + e.getMessage());
