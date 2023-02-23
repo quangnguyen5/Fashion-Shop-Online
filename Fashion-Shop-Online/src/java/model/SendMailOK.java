@@ -28,12 +28,14 @@ public class SendMailOK {
         if (login != null && pwd != null) { //authentication required?
             props.put("mail.smtp.auth", "true");
             pa = new Authenticator() {
+                @Override
                 public PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(login, pwd);
                 }
             };
         }//else: no authentication
         Session session = Session.getInstance(props, pa);
+    
 // — Create a new message –
         Message msg = new MimeMessage(session);
 // — Set the FROM and TO fields –
@@ -53,7 +55,6 @@ public class SendMailOK {
         Transport.send(msg);
         System.out.println(
                 "Message sent OK.");
-
     }
 
     /**
@@ -63,11 +64,11 @@ public class SendMailOK {
         {
             try {
                 String smtpServer = "smtp.gmail.com";
-                String to = "khangdt01001@gamil.com";
-                String from = "khangdthe151162@fpt.edu.vn";
+                String to = "bubuitoan2k2@gmail.com";
+                String from = "toanbvhe163899@fpt.edu.vn";
                 String subject = "Hello from Java";
                 String body = "Test using java to send mail.";
-                String password = "khang0974421459";
+                String password = "08092002aA";
                 send(smtpServer, to, from, password, subject, body);
 
             } catch (Exception ex) {
