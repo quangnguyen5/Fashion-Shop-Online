@@ -86,6 +86,7 @@ public class CartDAO extends DBContext {
                     + "           (?,?,?,?,?,?)";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, product_id);
+            System.out.println(name);
             st.setString(2, name);
             st.setInt(3, price);
             st.setInt(4, quantity);
