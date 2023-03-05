@@ -35,7 +35,7 @@ public class BlogController extends HttpServlet{
         processRequest(request, response);
     }
 
-   private void processRequest(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+   private void processRequest(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, ServletException, IOException {
 response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -80,7 +80,47 @@ response.setContentType("text/html;charset=UTF-8");
         if (totalBlog % PAGE_SIZE != 0) {
             totalPage += 1;
         }
+         // Get list product, new, category, slider
+        List<Blog> listBlog = bd.getBlogWithPaging(page, PAGE_SIZE, searchKey, categoryId, type, value);
+        List<CategoryBlog> listCategoryBlog_BlogList = new CategoryDAO().getAllCategoryBlog();
+        session.setAttribute("listCategoryBlog", listCategoryBlog_BlogList);
+        Blog newBlog = bd.getBlogNew();
+        session.setAttribute("newBlog", newBlog);
+        
+       
 
+        // Set param request to jsp page
+        session.setAttribute("listBlogList", listBlog);
+        session.setAttribute("historyUrl", "blog");
+        String history = "blog?page=" + page;
+        if (strSearchKey != null) {
+            history = history + "&key=" + strSearchKey;
+            request.setAttribute("historyKey", "&key=" + strSearchKey);
+            request.setAttribute("key", strSearchKey);
+        }
+        if (strCategoryId != null) {
+            history = history + "&categoryId=" + strCategoryId;
+            request.setAttribute("historyCategoryId", "&categoryId=" + strCategoryId);
+            request.setAttribute("categoryId", strCategoryId);
+        }
+        if (strValue != null) {
+            history = history + "&value=" + strValue;
+            request.setAttribute("historyValue", "&value=" + strValue);
+            request.setAttribute("value", strValue);
+        }
+        if (strType != null) {
+            history = history + "&type=" + strType;
+            request.setAttribute("historyType", "&type=" + strType);
+            request.setAttribute("type", strType);
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
+        session.setAttribute("historyUrl", history);
+
+        // Request
+
+
+        request.getRequestDispatcher("BlogList.jsp").forward(request, response);
    }
     
 }
