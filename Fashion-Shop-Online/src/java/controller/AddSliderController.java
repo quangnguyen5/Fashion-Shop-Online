@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dal.ProductDAO;
+import dal.SliderDAO;
 import jakarta.servlet.ServletContext;
 import java.io.File;
 import java.io.IOException;
@@ -15,32 +15,26 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.concurrent.TimeUnit;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.User;
+import model.Slider;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.tomcat.util.http.fileupload.ProgressListener;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
-import model.Product;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 /**
  *
- * @author son22
+ * @author Admin
  */
-public class AddProductController extends HttpServlet {
+public class AddSliderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,27 +48,13 @@ public class AddProductController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        ProductDAO p = new ProductDAO();
-        HttpSession session = request.getSession();
+        
+        
+        
+        request.getRequestDispatcher("MKTAddSlider.jsp").forward(request, response);
+        }
+    
 
-        String name = request.getParameter("name");
-        String desciption = request.getParameter("desciption");
-        String brief_infor = request.getParameter("brief_infor");
-        boolean status = Boolean.parseBoolean(request.getParameter("status"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        int original_price = Integer.parseInt(request.getParameter("original_price"));
-        int sale_price = Integer.parseInt(request.getParameter("sale_price"));
-        String imageUrl = "images/product/" + request.getParameter("image");
-
-        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-
-        int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId);
-        p.AddImageProduct(new_id, imageUrl);
-        System.out.println(name);
-        response.sendRedirect("marketingproductlist");
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -105,8 +85,9 @@ public class AddProductController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        
 
-        String url_thumbnail = "images/product/";
+        String url_thumbnail = "images/slider/";
 
         // Create a factory for disk-based file items
         DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -138,7 +119,7 @@ public class AddProductController extends HttpServlet {
                         break;
                     } else {
                         Path path = Paths.get(filename);
-                        String storePath = servletContext.getRealPath("../../web/images/product");
+                        String storePath = servletContext.getRealPath("../../web/images/slider");
                         File uploadFile = new File(storePath + "/" + path.getFileName());
                         item.write(uploadFile);
                         url_thumbnail += filename;
@@ -147,27 +128,22 @@ public class AddProductController extends HttpServlet {
                 }
             }
             
-            ProductDAO p = new ProductDAO();
-            String name = fields.get("name");
-            String desciption = fields.get("desciption");
-            String brief_infor = fields.get("brief_infor");
-            boolean status = Boolean.parseBoolean(fields.get("status"));
-            int quantity = Integer.parseInt(fields.get("quantity"));
-            int original_price = Integer.parseInt(fields.get("original_price"));
-            int sale_price = Integer.parseInt(fields.get("sale_price"));
+            String slider_title = fields.get("slider_title");
+            String backlink = fields.get("backlink");
+            int status = Integer.parseInt(fields.get("status"));
+            
+;
 
-            int categoryId = Integer.parseInt(fields.get("categoryId"));
-            System.out.println(name);
-            int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId);
-            p.AddImageProduct(new_id, url_thumbnail);
-            response.sendRedirect("marketingproductlist");
+            SliderDAO sd1 = new SliderDAO();
+            sd1.AddSliderById(slider_title,backlink,url_thumbnail,status);
+            TimeUnit.SECONDS.sleep(2);
+            request.getRequestDispatcher("slider-list").forward(request, response);
+            
         } catch (FileUploadException ex) {
-            System.out.println(ex);
+
         } catch (Exception ex) {
-            System.out.println(ex);
 
         }
-
     }
 
     /**
