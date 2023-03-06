@@ -31,10 +31,6 @@ import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
 import model.Product;
 import org.apache.commons.fileupload.FileUploadException;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -72,7 +68,6 @@ public class AddProductController extends HttpServlet {
 
         int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId);
         p.AddImageProduct(new_id, imageUrl);
-        System.out.println(name);
         response.sendRedirect("marketingproductlist");
     }
 
@@ -157,14 +152,13 @@ public class AddProductController extends HttpServlet {
             int sale_price = Integer.parseInt(fields.get("sale_price"));
 
             int categoryId = Integer.parseInt(fields.get("categoryId"));
-            System.out.println(name);
+
             int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId);
             p.AddImageProduct(new_id, url_thumbnail);
             response.sendRedirect("marketingproductlist");
         } catch (FileUploadException ex) {
-            System.out.println(ex);
+
         } catch (Exception ex) {
-            System.out.println(ex);
 
         }
 
