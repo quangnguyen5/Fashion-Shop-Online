@@ -15,10 +15,7 @@ import model.Chart;
 import model.ChartStar;
 import model.Feedback;
 
-/**
- *
- * @author GanKPoet
- */
+
 public class FeedbackDAO extends DBContext {
 
     public List<Feedback> getAllFeedback() {

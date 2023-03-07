@@ -7,9 +7,9 @@ package controller;
 
 import dal.CategoryDAO;
 import dal.CustomerDAO;
-//import dal.DateDAO;
-//import dal.FeedbackDAO;
-//import dal.OrderDao;
+import dal.DateDAO;
+import dal.FeedbackDAO;
+import dal.OrderDao;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,73 +43,73 @@ public class AdminDashboardController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ProductDAO pd = new ProductDAO();
         CustomerDAO cd = new CustomerDAO();
-   //     FeedbackDAO fd = new FeedbackDAO();
+        FeedbackDAO fd = new FeedbackDAO();
         CategoryDAO ctd = new CategoryDAO();
-       // OrderDao od = new OrderDao();
-     //   DateDAO dd = new DateDAO();
+        OrderDao od = new OrderDao();
+        DateDAO dd = new DateDAO();
 
-       // Date date = dd.get7day();
-//        String salerId = "!= -1";
-//        String start = date.getStart().toString();
-//        String end = date.getEnd().toString();
-//        String start_raw = request.getParameter("start");
-//        String end_raw = request.getParameter("end");
-//        if (start_raw != null) {
-//            start = start_raw;
-//            end = end_raw;
-//        }
+        Date date = dd.get7day();
+        String salerId = "!= -1";
+        String start = date.getStart().toString();
+        String end = date.getEnd().toString();
+        String start_raw = request.getParameter("start");
+        String end_raw = request.getParameter("end");
+        if (start_raw != null) {
+            start = start_raw;
+            end = end_raw;
+        }
 
-   //     int day = dd.CountDayByStartEnd(start, end);
+        int day = dd.CountDayByStartEnd(start, end);
 
-       // int totalProduct = pd.getTotalProduct(end);
-      //  int totalProduct1 = pd.getTotalProduct(1, end);
-      //  int totalProduct2 = pd.getTotalProduct(2, end);
-      //  int totalProduct3 = pd.getTotalProduct(3, end);
-      //  int totalProduct4 = pd.getTotalProduct(4, end);
+        int totalProduct = pd.getTotalProduct(end);
+        int totalProduct1 = pd.getTotalProduct(1, end);
+        int totalProduct2 = pd.getTotalProduct(2, end);
+        int totalProduct3 = pd.getTotalProduct(3, end);
+        int totalProduct4 = pd.getTotalProduct(4, end);
 
         List<Category> listCategoryProduct = ctd.getAllCategory();
         
-        // set chart revenue
-//        List<Chart> listChartRevenueArea = od.getChartRevenueArea(salerId, start, day);
-//        int maxListChartRevenueArea = -1;
-//        for (Chart o : listChartRevenueArea) {
-//            if (o.getValue() > maxListChartRevenueArea) {
-//                maxListChartRevenueArea = o.getValue();
-//            }
-//        }
-//        maxListChartRevenueArea = (maxListChartRevenueArea / 1000000 + 1) * 1000000;
-//        
-//        // set chart customer
-//        List<Chart> listChartCustomer = cd.getChartCustomerArea(start, day);
-//        int maxListChartCustomerArea = -1;
-//        for (Chart o : listChartCustomer) {
-//            if (o.getValue() > maxListChartCustomerArea) {
-//                maxListChartCustomerArea = o.getValue();
-//            }
-//        }
-//        maxListChartCustomerArea = (maxListChartCustomerArea / 10 + 1) * 10;
-//        
-        // set chart avg rated
-//        List<ChartStar> listChartAvgStar = fd.getChartAvgStar(start, day);
-//
-//        request.setAttribute("totalProduct", totalProduct);
-//        request.setAttribute("totalProduct1", totalProduct1);
-//        request.setAttribute("totalProduct2", totalProduct2);
-//        request.setAttribute("totalProduct3", totalProduct3);
-//        request.setAttribute("totalProduct4", totalProduct4);
-//        
+//         set chart revenue
+        List<Chart> listChartRevenueArea = od.getChartRevenueArea(salerId, start, day);
+        int maxListChartRevenueArea = -1;
+        for (Chart o : listChartRevenueArea) {
+            if (o.getValue() > maxListChartRevenueArea) {
+                maxListChartRevenueArea = o.getValue();
+            }
+        }
+        maxListChartRevenueArea = (maxListChartRevenueArea / 1000000 + 1) * 1000000;
+        
+        // set chart customer
+        List<Chart> listChartCustomer = cd.getChartCustomerArea(start, day);
+        int maxListChartCustomerArea = -1;
+        for (Chart o : listChartCustomer) {
+            if (o.getValue() > maxListChartCustomerArea) {
+                maxListChartCustomerArea = o.getValue();
+            }
+        }
+        maxListChartCustomerArea = (maxListChartCustomerArea / 10 + 1) * 10;
+        
+//         set chart avg rated
+        List<ChartStar> listChartAvgStar = fd.getChartAvgStar(start, day);
+
+        request.setAttribute("totalProduct", totalProduct);
+        request.setAttribute("totalProduct1", totalProduct1);
+        request.setAttribute("totalProduct2", totalProduct2);
+        request.setAttribute("totalProduct3", totalProduct3);
+        request.setAttribute("totalProduct4", totalProduct4);
+        
         
         request.setAttribute("listCategoryProduct", listCategoryProduct);
         
-//        request.setAttribute("listChartRevenueArea", listChartRevenueArea);
-//        request.setAttribute("maxListChartRevenueArea", maxListChartRevenueArea);
-//        
-//        request.setAttribute("listChartCustomer", listChartCustomer);
-//        request.setAttribute("maxListChartCustomerArea", maxListChartCustomerArea);
+        request.setAttribute("listChartRevenueArea", listChartRevenueArea);
+        request.setAttribute("maxListChartRevenueArea", maxListChartRevenueArea);
         
-     //   request.setAttribute("listChartAvgStar", listChartAvgStar);
-//        request.setAttribute("start", start);
-//        request.setAttribute("end", end);
+        request.setAttribute("listChartCustomer", listChartCustomer);
+        request.setAttribute("maxListChartCustomerArea", maxListChartCustomerArea);
+        
+        request.setAttribute("listChartAvgStar", listChartAvgStar);
+        request.setAttribute("start", start);
+        request.setAttribute("end", end);
         request.getRequestDispatcher("AdminDashboard.jsp").forward(request, response);
     }
 
