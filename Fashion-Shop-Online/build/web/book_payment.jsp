@@ -1,7 +1,5 @@
 <%-- 
-    Document   : ticket-booking
-    Created on : Nov 6, 2022, 5:20:59 PM
-    Author     : LEGION 5
+    Author     : minh
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
