@@ -11,13 +11,13 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class SendMailOK {
+public class SendMailOK  {
 
     public static void send(String smtpServer, String to, String from, String psw,
             String subject, String body) throws Exception {
 // java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         Properties props = System.getProperties();
-// –
+// –--
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
