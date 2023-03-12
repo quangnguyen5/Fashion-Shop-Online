@@ -1,7 +1,7 @@
 <%-- 
     Document   : update_product
     Created on : Jun 15, 2022, 10:58:06 PM
-    Author     : GanKPoet
+    Author     : quang
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
