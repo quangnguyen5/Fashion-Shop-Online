@@ -38,19 +38,27 @@ public class CartController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             CartDAO c = new CartDAO();
             HttpSession session = request.getSession();
-            User u = (User)session.getAttribute("us");
+            User u = (User) session.getAttribute("us");
+            Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+
             int user_id = u.getUser_Id();
             List<Cart> listCart = c.getAllCartByUserId(user_id);
             int sum = 0;
             for (Cart o : listCart) {
                 sum += o.getTotal_cost();
             }
+          
+if ( carts ==null) {
+    carts= new LinkedHashMap<>();
+}
             request.setAttribute("sum", sum);
             session.setAttribute("historyUrl", "carts");
-            request.setAttribute("listCart",  listCart);
+            request.setAttribute("listCart", listCart);
+//            session.setAttribute("carts", carts);
+
             request.getRequestDispatcher("carts.jsp").forward(request, response);
         }
     }
