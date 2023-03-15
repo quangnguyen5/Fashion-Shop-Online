@@ -54,7 +54,6 @@ public class CartController extends HttpServlet {
 if ( carts ==null) {
     carts= new LinkedHashMap<>();
 }
-            request.setAttribute("sum", sum);
             session.setAttribute("historyUrl", "carts");
             request.setAttribute("listCart", listCart);
 //            session.setAttribute("carts", carts);

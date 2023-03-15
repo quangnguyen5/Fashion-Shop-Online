@@ -46,7 +46,7 @@ public class DeleteCartController extends HttpServlet {
             HttpSession session = request.getSession();
             CartDAO cd = new CartDAO();
             cd.deleteCart(product_id, user_id);
-           
+            
             String historyUrl = (String) session.getAttribute("historyUrl");
             response.sendRedirect(historyUrl);
         }
