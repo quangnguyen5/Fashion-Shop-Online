@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -101,11 +102,13 @@
                                                 <a href="" class="product-name">${p.name}</a>
                                                 <div class="product-price">
                                                     <c:if test="${p.sale_price != 0}">
-                                                        ${p.sale_price}VND
-                                                        <del>${p.original_price}<fmt:formatNumber value="${p.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</del>
+                                                        <fmt:formatNumber value="${p.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND
+                                                        <fmt:formatNumber value="${p.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" var="formattedPrice" /> 
+                                                        <del>${formattedPrice} VND</del>
                                                     </c:if>
                                                     <c:if test="${p.sale_price == 0}">
-                                                        <span>${p.original_price}VND</span>
+                                                        <fmt:formatNumber value="${p.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" var="formattedDiscount" /> 
+                                                        <span><fmt:formatNumber value="${p.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" />VND</span>
                                                     </c:if>
                                                 </div>
                                             </div>
