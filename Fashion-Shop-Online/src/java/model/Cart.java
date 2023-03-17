@@ -21,5 +21,4 @@ public class Cart {
         private int quantity;
         private int total_cost;
         private int user_id;
-        private  Product product;
 }

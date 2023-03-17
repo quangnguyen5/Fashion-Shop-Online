@@ -1,4 +1,8 @@
-
+<%-- 
+    Document   : MKT-left-board
+    Created on : Jun 23, 2022, 8:55:56 PM
+    Author     : son22
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="layoutSidenav_nav">
@@ -29,7 +33,7 @@
                 <div class="collapse" id="collapse2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="setting-list">Danh sách cài đặt</a>
-                        <a class="nav-link" href="list-user">Thêm mới cài đặt</a>
+                        <!--<a class="nav-link" href="list-user">Thêm mới cài đặt</a>-->
                     </nav>
                 </div>
         </div>

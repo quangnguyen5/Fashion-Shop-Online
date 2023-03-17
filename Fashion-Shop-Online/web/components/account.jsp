@@ -1,16 +1,9 @@
-
+<%-- 
+    Document   : account
+    Created on : Jun 3, 2022, 6:30:16 PM
+    Author     : son22
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<link rel="stylesheet" type="text/css" href="css/util.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
 <!-- Notification User -->
 <c:if test="${notification !=null}">
     <div class="alert alert-warning alert-dismissible fade show" role="alert" style="position: fixed; z-index: 15 ; margin-left: 40%">
@@ -23,79 +16,29 @@
 <!-- Login -->
 <div class="modal fade col-md-12" role="dialog" id="loginModal">
     <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 10px; margin-top: 100px;">
+        <div class="modal-content" style="border-radius: 10px; margin-top: 258px;">
             <div class="modal-header">
                 <h2 class="" id="loginModal" style="text-align:center; font-family: Arial"><b style="padding-left: 150px;">Đăng Nhập</b></h2><br>
             </div>
             <div class="modal-body">
-                <form action="login" method="post" class="login100-form validate-form">
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-                        <span class="label-input100">Tên Đăng Nhập</span>
-                        <input class="input100" type="text" name="username" placeholder="Type your username">
-                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                <form action="login" method="post">
+                    <div class="form-group">
+                        <input name="email" type="email" class="form-control" placeholder="Email của bạn"style="border-radius: 100px;" required="">
                     </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <span class="label-input100">Mật khẩu</span>
-                        <input class="input100" type="password" name="pass" placeholder="Type your password">
-                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    <div class="form-group">
+                        <input name="password" type="password" class="form-control" placeholder="Mật khẩu" style="border-radius: 100px;" required>
                     </div>
-
-                    <div class="text-right p-t-8 p-b-31">
-                        <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#ResetPasswordModal" style="float:right; text-decoration: none; border-radius: 100px;">Quên Mật Khẩu?</a>
-
-                    </div>
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-                                Đăng Nhập
-                            </button>
-                        </div>
-                    </div>
+                    <center><button type="submit" class="btn btn-dark" style="padding-right: 193px;padding-left: 193px; border-radius: 100px;">Đăng nhập</button></center>
                 </form>
-                <div class="txt1 text-center p-t-54 p-b-20">
-                    <span>
-                        Đăng Nhập Bằng
-                    </span>
-                </div>
-                <div class="flex-c-m">
-                    <a href="" class="login100-social-item bg1">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="#" class="login100-social-item bg3">
-                        <i class="fa fa-google"></i>
-                    </a>
-                </div>
-                <div class="flex-col-c p-t-155">
-
-                    <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#registerModal" style="float:left; text-decoration: none; border-radius: 10px;">Đăng Kí</a>
-                    <!--  <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#ResetPasswordModal" style="float:right; text-decoration: none; border-radius: 100px;">Forgot password?</a>
-                    -->
-                </div>
                 <br><br>
+                <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#ResetPasswordModal" style="float:right; text-decoration: none; border-radius: 100px;">Quên Mật Khẩu</a>
+                <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#registerModal" style="float:left; text-decoration: none; border-radius: 100px;">Đăng ký tài khoản mới</a>
             </div>
         </div>
     </div>
 </div>
 
-
-<div id="dropDownSelect1"></div>
-
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<script src="vendor/animsition/js/animsition.min.js"></script>
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="vendor/select2/select2.min.js"></script>
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<script src="vendor/countdowntime/countdowntime.js"></script>
-<script src="js/main.js"></script>
-
-
-
 <!-- Register -->
-
 
 <div class="modal fade col-md-12" role="dialog" id="registerModal" style="padding-right: 18px" >
     <div class="modal-dialog">
@@ -140,17 +83,10 @@
                                         <input class="" name="gender" type="radio" value="False" required/>&nbsp; Nữ
                                     </div>
                                 </div>
-                                <br><br><center>   <div class="container-login100-form-btn">
-                                        <div class="wrap-login100-form-btn">
-                                            <div class="login100-form-bgbtn"></div>
-                                            <button class="login100-form-btn">
-                                              Đăng Kí
-                                            </button>
-                                        </div>
-                                    </div></center><br><br>
+                                <br><br><center><button type="submit" class="btn btn-dark" style="padding-right: 190px;padding-left: 190px; border-radius: 100px;">Đăng ký</button></center><br><br>
                             </div>
                         </form>
-                        <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#loginModal" style="padding-left: 120px; text-decoration: none; border-radius: 100px;">Đã có tài khoản ? Đăng Nhập</a> 
+                        <a type="button" data-toggle="modal" data-dismiss="modal" data-target="#loginModal" style="padding-left: 150px; text-decoration: none; border-radius: 100px;">Quay lại đăng nhập</a> 
                     </div>    
                 </section>
             </div>
@@ -205,7 +141,7 @@
                                                 <div><input name="gender" type="radio" value="0" ${sessionScope.us.gender == false ? 'checked' : ''}/>
                                                     Nữ
                                                 </div>
-                                                <input type="hidden" name="userId" value="${sessionScope.us.user_Id}"/>
+                                                    <input type="hidden" name="userId" value="${sessionScope.us.user_Id}"/>
                                             </div>
                                             <div class="row mt-4 col-md-6" hidden><label class="labels" style="font-size: 10px;">ID</label><input type="text" class="form-control" name="userId" placeholder="ID" value="${sessionScope.us.user_Id}"></div>&nbsp;
                                             <div class="row mt-4 col-md-3"><label class="labels" style="font-size: 10px;">Mật khẩu</label><a href="#" style="text-decoration: none;"><button type="button" data-toggle="modal" data-dismiss="modal" data-target="#ChangePasswordModal"  class="btn btn-dark" value="">Đổi mật khẩu</button></a></div>
@@ -273,14 +209,12 @@
                     </div>
                     <br>
                     <center>
-                        <div class="container-login100-form-btn">
-                            <div class="wrap-login100-form-btn">
-                                <div class="login100-form-bgbtn"></div>
-                                <button class="login100-form-btn">
-                                    Kiểm tra
-                                </button>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-dark" style="padding-right: 200px;
+                                padding-left: 200px;
+                                border-radius: 100px;
+                                margin-bottom: -40px;
+                                height: 50px;">Kiểm tra
+                        </button>
                     </center>
                 </form>
                 <br><br>

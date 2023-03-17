@@ -11,6 +11,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ *
+ * @author son22
+ */
 @Builder
 @Getter
 @Setter
@@ -29,6 +33,4 @@ public class Product {
     private Date update_date;
     private int category_id;
     private double rated_star;
-    private String season;
-    private String sex;
 }

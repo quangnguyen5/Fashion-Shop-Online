@@ -17,7 +17,7 @@
             <%@include file="components/account.jsp" %>
             <!--Slider-->
 
-            
+
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
                     <div class="carousel-indicators">
@@ -26,15 +26,15 @@
                         <c:forEach begin="1" end="${sessionScope.totalSlider-1}" var="c">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${c}" aria-label="Slide ${c+1}"></button>
                         </c:forEach>
-                       
+
                     </div>
 
                     <div class="carousel-inner">
 
                         <c:forEach items="${sessionScope.listSlider_HomePageAll}" var="s" >
                             <div class="carousel-item ${s.id == sessionScope.sliderFirst.id ? "active" : ""}">
-                                    <a href="${s.backlink}"><img src="${s.slider_image}" class="d-block w-100" alt="..."></a>
-                                
+                                <a href="${s.backlink}"><img src="${s.slider_image}" class="d-block w-100" alt="..."></a>
+
                             </div> 
 
                         </c:forEach>
@@ -52,14 +52,13 @@
 
 
 
-
             <!-- Content -->
             <div id="content">
                 <div class="content-section background-product" style="width: 1500px">
 
 
                     <!-- Base Product -->
-                    <h2 class="section-heading">Danh sách sản phẩm</h2>
+                    <h2 class="section-heading">Trang phục cơ bản</h2>
                     <div  class="container-fluid">
                         <div class="row">
                             <c:forEach items="${sessionScope.list4product}" var="p">
@@ -90,8 +89,13 @@
 
 
                                                 </a>
-                                                <a href="addcart?productId=${p.id}" class="buy-now" >Mua ngay</a>
+                                                <c:if test="${sessionScope.us == null}" >
+                                                    <a class="buy-now" data-toggle="modal"  data-target="#loginModal" style="color: white">Mua ngay</a>
+                                                </c:if>
+                                                <c:if test="${sessionScope.us != null}" >
 
+                                                    <a href="addcart?productId=${p.id}" class="buy-now" >Mua ngay</a>
+                                                </c:if>
                                             </div>
                                             <div class="product-infor">
                                                 <a href="" class="product-name">${p.name}</a>
@@ -117,33 +121,65 @@
                 <div class="content-Category-section background-product"><!--
 
                     <!-- Product list -->
-                    <h2 class="section-heading">Sản phẩm nổi bật</h2>
+                    <h2 class="section-heading">Những sản phẩm đa dạng</h2>
                     <div class="category-list">
-                        <a href="list?&categoryId=1"><div class="category-item category-img" style="background: url('images/ao-thun-co-tron-hieu-nike.jpg')
+                        <a href="list?&categoryId=3"><div class="category-item category-img" style="background: url('./assets/img/categoryImg/categoryImg1.jpg')
                                                           top center / cover no-repeat">
-                                <div class="category-content">Áo</div>
+                                <div class="category-content">Đồ mặc trong</div>
                             </div></a>
 
-                        <a href="list?&categoryId=2"><div class="category-item category-img" style="background: url('images/quan-jean-nam.jpg')
+                        <a href="list?&categoryId=1"><div class="category-item category-img" style="background: url('./assets/img/categoryImg/categoryImg2.jpg')
+                                                          top center / cover no-repeat">
+                                <div class="category-content">Đồ mặc ngoài</div>
+                            </div></a>
+
+                        <a href="list?&categoryId=4"><div class="category-item category-img" style="background: url('./assets/img/categoryImg/categoryImg3.jpg')
+                                                          top center / cover no-repeat">
+                                <div class="category-content">Phụ kiện</div>
+                            </div></a>
+
+
+                        <a href="list?&categoryId=2"><div class="category-item category-img" style="background: url('./assets/img/categoryImg/categoryImg4.jpg')
                                                           top center / cover no-repeat">
                                 <div class="category-content">Quần</div>
                             </div></a>
 
-                        <a href="list?&categoryId=3"><div class="category-item category-img" style="background: url('images/giay_dep.jpg')
-                                                          top center / cover no-repeat">
-                                <div class="category-content">Giày Dép</div>
-                            </div></a>
 
-                        <a href="list?&categoryId=4"><div class="category-item category-img" style="background: url('images/phu_kien.jpg')
-                                                          top center / cover no-repeat">
-                                <div class="category-content">Phụ kiện</div>
-                            </div></a>
+
+
+
+
 
                         <div class="clear"></div>
                     </div> 
                 </div>
                 <!-- Blog -->
-       s  
+                <div class="blog-section">
+                    <div class="content-section">
+                        <h2 class="section-heading text-white">Chúng tôi luôn mang đến những công nghệ hiện đại nhất</h2>
+                        <p class="section-sub-heading text-white">Công nghệ Việt cho người Việt</p>
+
+                        <!-- blog list hot -->
+                        <div class="blog-list">
+
+                            <c:forEach items="${sessionScope.listBlog_HomePage}" var="c">
+                                <div class="blog-item">
+                                    <img src="${c.thumbnail}" alt="" class="blog-img" style="width: 592px; height: 450px">
+                                    <div class="blog-body" style="min-height: 340px">
+                                        <h3 class="blog-heading" style="font-size: 40px">${c.title}</h3>
+                                        <p class="blog-desc">${c.brief_infor}</p>
+                                        <a href="blogDetail?blog_id=${c.blog_id}&categoryBlog_id=${c.categoryBlog_id}" class="place-buy-btn">Tìm hiểu thêm</a>
+                                    </div>
+                                </div>
+                            </c:forEach>
+
+                            <div class="clear"></div>
+                        </div> 
+                    </div>
+
+                </div>
+
+
                 <%@include file="components/footer.jsp" %>
                 </body>
                 </html>

@@ -5,6 +5,7 @@
  */
 package com.vnpay.common;
 
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.security.MessageDigest;
@@ -15,11 +16,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import jakarta.servlet.http.HttpServletRequest;
 
+/**
+ *
+ * @author Khuong Hung
+ */
 public class Config {
     public static String vnp_PayUrl = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    public static String vnp_Returnurl = "http://localhost:8080/fashion-shop-online/successful";
+    public static String vnp_Returnurl = "http://localhost:9999/fashion-shop-online/successful";
     public static String vnp_TmnCode = "P3QYBBA2";
     public static String vnp_HashSecret = "MDVXLNRNFJMIEDLBGAXOIUUNDAGPEQBX";
     public static String vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";

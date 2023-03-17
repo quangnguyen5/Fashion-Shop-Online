@@ -46,7 +46,7 @@
                                     <div class="carousel-item ${s.id == sliderFirst.id ? "active" : ""}">
                                         <img src="${s.slider_image}" class="d-block w-100" alt="...">
                                     </div> 
- 
+
                                 </c:forEach>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -90,8 +90,12 @@
                                     <img src="${sessionScope.pNew.image}" alt="">
 
                                 </a>
-                                <a href="addcart?productId=${sessionScope.pNew.id}" class="buy-now" >Mua ngay</a>
-
+                                <c:if test="${sessionScope.us == null}" >
+                                    <a class="buy-now" data-toggle="modal"  data-target="#loginModal" style="color: white">Mua ngay</a>
+                                </c:if>
+                                <c:if test="${sessionScope.us != null}" >
+                                    <a href="addcart?productId=${sessionScope.pNew.id}" class="buy-now" >Mua ngay</a>
+                                </c:if>
                             </div>
                             <div class="product-infor">
                                 <a href="" class="product-name">${sessionScope.pNew.name}</a>

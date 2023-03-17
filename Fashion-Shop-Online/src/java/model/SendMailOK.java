@@ -22,20 +22,21 @@ public class SendMailOK {
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.debug", "true");
+        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
         final String login = from;//”nth001@gmail.com”;//usermail
         final String pwd = psw;//”password cua ban o day”;
         Authenticator pa = null; //default: no authentication
         if (login != null && pwd != null) { //authentication required?
             props.put("mail.smtp.auth", "true");
             pa = new Authenticator() {
-                @Override
                 public PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(login, pwd);
                 }
             };
         }//else: no authentication
         Session session = Session.getInstance(props, pa);
-    
 // — Create a new message –
         Message msg = new MimeMessage(session);
 // — Set the FROM and TO fields –
@@ -55,6 +56,7 @@ public class SendMailOK {
         Transport.send(msg);
         System.out.println(
                 "Message sent OK.");
+
     }
 
     /**
@@ -64,11 +66,11 @@ public class SendMailOK {
         {
             try {
                 String smtpServer = "smtp.gmail.com";
-                String to = "bubuitoan2k2@gmail.com";
-                String from = "toanbvhe163899@fpt.edu.vn";
+                String to = "quangvip44@gmail.com";
+                String from = "quangnphe160125@fpt.edu.vn";
                 String subject = "Hello from Java";
                 String body = "Test using java to send mail.";
-                String password = "08092002aA";
+                String password = "nguyenquang0208";
                 send(smtpServer, to, from, password, subject, body);
 
             } catch (Exception ex) {

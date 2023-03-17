@@ -1,5 +1,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%-- 
+    Document   : BlogList
+    Created on : Jun 7, 2022, 5:22:43 PM
+    Author     : Veetu
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-tfo-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Blog</title>
+        <title>?</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->

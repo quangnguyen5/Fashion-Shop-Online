@@ -1,4 +1,8 @@
-
+<%-- 
+    Document   : blogfeature
+    Created on : Jun 9, 2022, 11:28:33 PM
+    Author     : Veetu
+--%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

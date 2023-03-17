@@ -1,9 +1,12 @@
-
+<%-- 
+    Document   : cart
+    Created on : Jun 2, 2022, 7:35:43 PM
+    Author     : dongh
+--%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <!DOCTYPE html>
@@ -17,8 +20,11 @@
             <link rel="stylesheet" href="./assets/css/style.css">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
             <!-- Google Font -->
             <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <meta name="description" content="" />
@@ -52,6 +58,7 @@
                                 <table>
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th class="p-name">Tên sản phẩm</th>
                                             <th>Giá tiền</th>
                                             <th>Số lượng</th>
@@ -60,59 +67,48 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:set var="costTotal" value="${0}" />
-
                                         <c:forEach items="${listCart}" var="c">
                                             <tr>
-                                        <!--        <td class="p-price first-row">${c.product_id} </td>-->
-                                                <td class="p-price first-row">
+                                                <td class="p-price first-row">${c.product_id}</td>
+                                                <td class="cart-title first-row">
                                                     <h5>${c.product_name}</h5>
                                                 </td>
-                                             <!--   c.product_price-->
-                                                <td class="p-price first-row"><fmt:formatNumber value="${c.product_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</td>
+                                                <td class="p-price first-row">${c.product_price}đ</td>
                                                 <td class="qua-col first-row">
                                                     <div class="quantity">                                                
                                                         <form action="update-cart">
                                                             <input class="form-control form-control-sm" onchange="this.form.submit()" type="number" name="quantity" value="${c.quantity}">
                                                             <input type="hidden" name="productId" value="${c.product_id}"/>
                                                             <input type="hidden" name="cartId" value="${c.cart_id}"/>
-                                                            <c:set var="costTotal" value="${costTotal+ c.quantity*c.product_price}" />
-
                                                         </form>
                                                     </div>
                                                 </td>
-                                                <td class="total-price first-row"><fmt:formatNumber value="${c.quantity*c.product_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</td>
-
+                                                <td class="total-price first-row">${c.total_cost}đ</td>
                                                 <td class="close-td first-row">
                                                     <a href="delete-cart?productId=${c.product_id}&userId=${c.user_id}" class="btn-outline-danger text-decoration-none">
                                                         <i class="ti-close"></i>
                                                     </a>
                                                 </td>
                                             </tr>
-
                                         </c:forEach>
-
                                     </tbody>
                                 </table>
-
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
 
-                                    <!--   <div class="discount-coupon">
-                                           <h6>Mã giảm giá</h6>
-                                           <form action="#" class="coupon-form">
-                                               <input type="text" placeholder="Nhập mã">
-                                               <button type="submit" class="site-btn coupon-btn">Apply</button>
-                                           </form>
-                                       </div>-->
+                                    <!--                                    <div class="discount-coupon">
+                                                                            <h6>Mã giảm giá</h6>
+                                                                            <form action="#" class="coupon-form">
+                                                                                <input type="text" placeholder="Nhập mã">
+                                                                                <button type="submit" class="site-btn coupon-btn">Apply</button>
+                                                                            </form>
+                                                                        </div>-->
                                 </div>
                                 <div class="col-lg-4 offset-lg-4">
                                     <div class="proceed-checkout">
                                         <ul>
-
-                                            <li class="cart-total">Tổng tiền các sản phẩm <span> <fmt:formatNumber value="${costTotal}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0"/> VND</span></li>
-
+                                            <li class="cart-total">Tổng tiền các sản phẩm <span>${sum}đ</span></li>
                                         </ul>
                                         <div class="proceed-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 

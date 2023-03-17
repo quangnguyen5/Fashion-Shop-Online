@@ -11,14 +11,13 @@ import model.User;
 public class UserDAO extends DBContext {
 
     public User login(String email, String password) {
-        String sql = "select * from [User] where email = ? and password = ?";
-        try{   
+        String sql = "select * from dbo.[User]\n"
+                + "where email = ? and [password] = ?";
+        try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, email);
             st.setString(2, password);
             ResultSet rs = st.executeQuery();
-            System.out.println(email);
-            System.out.println(password);
             while (rs.next()) {
                 User u = User.builder()
                         .user_Id(rs.getInt(1))
@@ -33,10 +32,9 @@ public class UserDAO extends DBContext {
                         .role_Id(rs.getString(10))
                         .build();
                 return u;
+
             }
-            System.out.println("Login ok");
-        } catch (SQLException e) {
-            System.out.println("error");
+        } catch (Exception e) {
         }
         return null;
     }

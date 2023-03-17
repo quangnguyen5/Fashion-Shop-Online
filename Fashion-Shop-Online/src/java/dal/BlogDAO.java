@@ -5,7 +5,6 @@
  */
 package dal;
 
-
 import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +15,7 @@ import java.util.List;
 import model.Blog;
 import model.CategoryBlog;
 import model.Chart;
+import model.Product;
 
 /**
  *
