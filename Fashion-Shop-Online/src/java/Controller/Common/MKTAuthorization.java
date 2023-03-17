@@ -46,9 +46,11 @@ public class MKTAuthorization implements Filter {
 
         User user = (User) session.getAttribute("us");
 
-        if (user != null && user.getRole_Id().equals("2")) {
-            chain.doFilter(request, response);
-            return;
+        if (user != null ) {
+            if (user.getRole_Id().equals("2")||user.getRole_Id().equals("3")) {
+              chain.doFilter(request, response);
+            return;   
+            }
         }
         req.setAttribute("notification", "Rất tiêc bạn không có quyền truy cập đường dẫn này!");
         request.getRequestDispatcher("index.jsp").forward(request, response);

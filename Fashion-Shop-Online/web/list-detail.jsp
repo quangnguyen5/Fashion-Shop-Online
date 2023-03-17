@@ -217,17 +217,17 @@
                                 <c:if test="${product.sale_price == 0 || product.sale_price == null}">
                                     <div style="margin-bottom: 1.7%">
                                         Giá gốc: 
-                                        <span >${product.original_price}đ</span>
+                                        <span ><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                     </div>
                                 </c:if>
                                 <c:if test="${product.sale_price != 0}">
                                     <div style="margin-bottom: 1.7%">
                                         Giá gốc: 
-                                        <span class="text-decoration-line-through">${product.original_price}đ</span>
+                                        <span class="text-decoration-line-through"><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                     </div>
                                     <div>
                                         Giảm giá:
-                                        <span>${product.sale_price}đ</span>
+                                        <span><fmt:formatNumber value="${product.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                     </div>
                                 </c:if>
                             </div>

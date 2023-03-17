@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 import model.Cart;
 import model.Product;
 import model.User;
@@ -66,6 +67,9 @@ public class AddToCartController extends HttpServlet {
             total_cost = quantity * c.getProduct_price();
             cd.addQuantityCartProduct(product_id, quantity, total_cost, user_id);
         }
+        List<Cart > listCart = (List<Cart >) session.getAttribute("listCart");
+        listCart =cd.getAllCartByUserId(user_id);
+        session.setAttribute("listCart", listCart);
         String historyUrl = (String) session.getAttribute("historyUrl");
         response.sendRedirect(historyUrl);
 

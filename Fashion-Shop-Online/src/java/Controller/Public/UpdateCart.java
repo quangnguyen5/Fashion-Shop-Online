@@ -14,6 +14,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
+import model.Cart;
+import model.User;
+
 /**
  *
  * @author son22
@@ -32,16 +36,21 @@ public class UpdateCart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
+        try ( PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession();
+
             String productId_raw = request.getParameter("productId");
             int product_id = Integer.parseInt(productId_raw);
             String quantity_raw = request.getParameter("quantity");
             int quantity = Integer.parseInt(quantity_raw);
             String cartId_raw = request.getParameter("cartId");
             int cartId = Integer.parseInt(cartId_raw);
+            String price_raw = request.getParameter("total");
+            int price = Integer.parseInt(price_raw);
             CartDAO cd = new CartDAO();
-            cd.updateQuantityCart(quantity, cartId, product_id);
+
+            cd.updateCart(quantity, price * quantity, cartId, product_id);
+        
             response.sendRedirect("carts");
         }
     }
