@@ -41,7 +41,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" type="button" data-toggle="modal"  data-target="#userProfileModal">Thông tin cá nhân</a></li>
-                                <li><a class="dropdown-item" href="#">Danh sách đơn hàng</a></li>
+                                <li><a class="dropdown-item" href="order-list-sale">Danh sách đơn hàng</a></li>
                                 <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
                             </ul>
                         </div>
