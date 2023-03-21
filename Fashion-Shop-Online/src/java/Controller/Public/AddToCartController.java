@@ -71,6 +71,9 @@ public class AddToCartController extends HttpServlet {
         listCart =cd.getAllCartByUserId(user_id);
         session.setAttribute("listCart", listCart);
         String historyUrl = (String) session.getAttribute("historyUrl");
+        if (historyUrl==null) {
+            historyUrl="home";
+        }
         response.sendRedirect(historyUrl);
 
     }

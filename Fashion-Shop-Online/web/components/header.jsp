@@ -1,8 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : May 30, 2022, 2:32:51 PM
-    Author     : son22
---%>
 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -27,7 +22,7 @@
                         <a class="nav-link" href="blog">Blog</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#">Liên hệ</a>
+                        <a class="nav-link" href="../contact.jsp">Liên hệ</a>
                     </li>
 
 
@@ -78,10 +73,10 @@
                         </li>
                     </c:if>
                     <!-- begin icon header -->
-                    <c:if test="${sessionScope.us.role_Id == 1 || sessionScope.us == null}">
+                    <c:if test="${sessionScope.us.role_Id == -1 || sessionScope.us == null}">
                         <li class="nav-item">
-                            <a class="nav-link btn btn-icon py-2 px-4" href="carts" tabindex="-1" aria-disabled="true">
-                                <i class="ti-shopping-cart"></i> <span class="btn btn-light ms-lg-1">${sessionScope.listCart.size()}</span>
+                            <a class="nav-link btn btn-icon py-2 px-4" href="${sessionScope.us == null ? 'home' : 'carts'}" tabindex="-1" aria-disabled="true">
+                                <i class="ti-shopping-cart"></i> <i class="btn btn-light ms-lg-1">${sessionScope.listCart.size()}</i>
                             </a>
                         </li>
                     </c:if>

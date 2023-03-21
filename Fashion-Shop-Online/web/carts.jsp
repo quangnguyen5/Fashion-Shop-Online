@@ -1,8 +1,4 @@
-<%-- 
-    Document   : cart
-    Created on : Jun 2, 2022, 7:35:43 PM
-    Author     : dongh
---%>
+
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
@@ -127,8 +123,6 @@
                     </div>
                 </div>
             </section>
-
-
             <!-- Js Plugins -->
             <script src="do1/js/jquery-3.3.1.min.js"></script>
             <script src="do1/js/bootstrap.min.js"></script>

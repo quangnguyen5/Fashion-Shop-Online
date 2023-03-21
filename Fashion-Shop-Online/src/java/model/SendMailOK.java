@@ -79,9 +79,7 @@ public class SendMailOK {
 
         }
 
-        /**
-         * “send” method to send the message.
-         */
+      
     }
 
 }
