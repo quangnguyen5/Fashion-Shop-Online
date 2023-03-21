@@ -19,7 +19,7 @@ import model.User;
 
 /**
  *
- * @author son22
+ * @author quang
  */
 public class CustomerDAO extends DBContext {
 

@@ -16,7 +16,7 @@ import model.CategoryBlog;
 
 /**
  *
- * @author son22
+ * @author thanh
  */
 public class CategoryDAO extends DBContext{
 

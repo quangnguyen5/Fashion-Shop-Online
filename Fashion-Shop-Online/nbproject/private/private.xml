@@ -3,7 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bubui/Documents/NetBeansProjects/Fashion-Shop-Online/Fashion-Shop-Online/web/index.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/src/java/dal/SliderDAO.java</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/cartCompletion.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/MKTDashboard.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/src/java/dal/ProductDAO.java</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/marketing_productlist.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/update_product.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/src/java/dal/DateDAO.java</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/update_product_new.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/src/java/dal/UserDAO.java</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/BlogList.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/BlogDetail.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/web/edit_products.jsp</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/src/java/dal/CategoryDAO.java</file>
+            <file>file:/E:/swp391/SWP_Project/Fashion-Shop-Online/Fashion-Shop-Online/src/java/dal/CustomerDAO.java</file>
         </group>
     </open-files>
 </project-private>

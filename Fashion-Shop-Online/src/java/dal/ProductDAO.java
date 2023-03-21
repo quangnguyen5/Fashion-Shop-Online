@@ -18,7 +18,7 @@ import model.Product;
 
 /**
  *
- * @author son22
+ * @author tung
  */
 public class ProductDAO extends DBContext {
 
