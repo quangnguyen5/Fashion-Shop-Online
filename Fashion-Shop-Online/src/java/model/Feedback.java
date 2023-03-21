@@ -16,7 +16,7 @@ import lombok.ToString;
 @Setter
 @ToString
 
-public class Feedback {
+ public class Feedback {
     private int id;
     private String fullName;
     private int rated_star;
