@@ -1,8 +1,4 @@
-<%-- 
-    Document   : product
-    Created on : May 30, 2022, 2:30:55 PM
-    Author     : quang
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
