@@ -189,7 +189,7 @@ public class CheckOutController extends HttpServlet {
         try {
             String smtpServer = "smtp.gmail.com";
             String to = email;
-            String from = "quangnphe160125@fpt.edu.vn";
+            String from = "beautylabg4@gmail.com";
             String subject = "Checkout For Order\n";
             String body
                     = "<!DOCTYPE html>\n"
@@ -387,7 +387,7 @@ public class CheckOutController extends HttpServlet {
                     + "     height=\"0\" style=\"min-width:600px;height:0\" class=\"CToWUd\">\n"
                     + "</body>\n"
                     + "</html>";
-            String password = "nguyenquang0208";
+            String password = "qdvdkjzmyumxidwp";
             SendMailOK.send(smtpServer, to, from, password, subject, body);
 
         } catch (Exception ex) {

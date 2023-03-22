@@ -73,7 +73,7 @@
                         </li>
                     </c:if>
                     <!-- begin icon header -->
-                    <c:if test="${sessionScope.us.role_Id == -1 || sessionScope.us == null}">
+                    <c:if test="${sessionScope.us.role_Id == 1 || sessionScope.us == null}">
                         <li class="nav-item">
                             <a class="nav-link btn btn-icon py-2 px-4" href="${sessionScope.us == null ? 'home' : 'carts'}" tabindex="-1" aria-disabled="true">
                                 <i class="ti-shopping-cart"></i> <i class="btn btn-light ms-lg-1">${sessionScope.listCart.size()}</i>
