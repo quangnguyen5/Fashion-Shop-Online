@@ -22,7 +22,7 @@ import java.util.Random;
  * @author Khuong Hung
  */
 public class Config {
-    public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+    public static String vnp_PayUrl = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
     public static String vnp_Returnurl = "http://localhost:9999/successful";
     public static String vnp_TmnCode = "0TDD0XGL";
     public static String vnp_HashSecret = "QVGLHRVHWZPVMQMFSOGKUJIVJBCYAPRO";
