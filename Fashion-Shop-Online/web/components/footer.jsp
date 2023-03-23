@@ -1,8 +1,4 @@
-<%-- 
-    Document   : footer
-    Created on : May 30, 2022, 8:50:43 PM
-    Author     : son22
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="footer">
 
@@ -26,7 +22,7 @@
                         <b>Đánh giá:</b>&nbsp;&nbsp;
                         <div class="form-group" >
                             <select name = "star" style="border-radius: 100px;" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Chọn số sao bạn dành cho KingsMan</option>
+                                <option selected>Chọn số sao bạn dành cho Beauty Lab</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -57,7 +53,7 @@
         </div>
 
         <div class="feedback-footer">
-            <h2 class="mt-40">KingsMan lắng nghe bạn!</h2>
+            <h2 class="mt-40">The Beauty Lab lắng nghe bạn!</h2>
             <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa</p>
             <a data-toggle="modal" data-dismiss="modal" data-target="#feedback_common"><input class="Button-Feedback mt-16" type="submit" value="Gửi ý kiến"></a> 
             <br>

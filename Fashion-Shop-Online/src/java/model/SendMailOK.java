@@ -70,7 +70,7 @@ public class SendMailOK {
                 String from = "beautylabg4@gmail.com";
                 String subject = "Hello from Java";
                 String body = "Test using java to send mail.";
-                String password = "08092002aA";
+                String password = "nguyenquang0208";
                 send(smtpServer, to, from, password, subject, body);
 
             } catch (Exception ex) {
@@ -79,9 +79,7 @@ public class SendMailOK {
 
         }
 
-        /**
-         * “send” method to send the message.
-         */
+      
     }
 
 }

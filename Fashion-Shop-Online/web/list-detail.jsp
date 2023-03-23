@@ -51,7 +51,7 @@
                 cursor: pointer;
                 color: white;
                 -webkit-transition: all 300ms linear;
-                transition: all 300ms linear; 
+                transition: all 300ms linear;
             }
             .checkbox-size:not(:checked) + label{
                 background-color: white;
@@ -98,7 +98,7 @@
                 color: black;
                 border: 3px solid black;
                 -webkit-transition: all 300ms linear;
-                transition: all 300ms linear; 
+                transition: all 300ms linear;
             }
             .checkbox-color:not(:checked) + label{
                 border: 3px solid white;
@@ -217,70 +217,70 @@
                                 <c:if test="${product.sale_price == 0 || product.sale_price == null}">
                                     <div style="margin-bottom: 1.7%">
                                         Giá gốc: 
-                                        <span >${product.original_price}đ</span>
+                                        <span ><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                     </div>
                                 </c:if>
                                 <c:if test="${product.sale_price != 0}">
                                     <div style="margin-bottom: 1.7%">
                                         Giá gốc: 
-                                        <span class="text-decoration-line-through">${product.original_price}đ</span>
+                                        <span class="text-decoration-line-through"><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                     </div>
                                     <div>
                                         Giảm giá:
-                                        <span>${product.sale_price}đ</span>
+                                        <span><fmt:formatNumber value="${product.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                     </div>
                                 </c:if>
                             </div>
                             <h6>Miêu tả ngắn gọn: </h6>
                             <div class="mb-5">${product.brief_infor}</div>
-<!--                            <div class="pd-color">
-                                <h6>Màu sắc: </h6>
-                                <div class="row">
-                                    <div class="col-12 pb-5">
-                                        <input class="checkbox-color" type="radio" name="color" id="color-1" value="1" checked="">
-                                        <label class="for-checkbox-color" for="color-1" style="background-color: black"></label>
-
-                                        <input class="checkbox-color" type="radio" name="color" id="color-2" value="2">
-                                        <label class="for-checkbox-color" for="color-2" style="background-color: blue"></label>
-
-                                        <input class="checkbox-color" type="radio" name="color" id="color-3" value="3">
-                                        <label class="for-checkbox-color" for="color-3" style="background-color: red"></label>
-
-                                        <input class="checkbox-color" type="radio" name="color" id="color-4" value="4">
-                                        <label class="for-checkbox-color" for="color-4" style="background-color: yellow"></label>
-
-                                        <input class="checkbox-color" type="radio" name="color" id="color-5" value="5">
-                                        <label class="for-checkbox-color" for="color-5" style="background-color: green"></label>
-
-                                        <input class="checkbox-color" type="radio" name="color" id="color-6" value="6">
-                                        <label class="for-checkbox-color" for="color-6" style="background-color: purple"></label>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <h6>Kích thước Áo/Quần....:  </h6>
-                            <div class="row">
-                                <div class="col-12 pb-5">
-                                    <input class="checkbox-size" type="radio" name="size" id="size-1" checked="" value="1">
-                                    <label class="for-checkbox-size" for="size-1">S</label>
-
-                                    <input class="checkbox-size" type="radio" name="size" id="size-2">
-                                    <label class="for-checkbox-size" for="size-2">M</label>
-
-                                    <input class="checkbox-size" type="radio" name="size" id="size-3">
-                                    <label class="for-checkbox-size" for="size-3">L</label>
-
-                                    <input class="checkbox-size" type="radio" name="size" id="size-4">
-                                    <label class="for-checkbox-size" for="size-4">XL</label>
-
-                                    <input class="checkbox-size" type="radio" name="size" id="size-5">
-                                    <label class="for-checkbox-size" for="size-5">2XL</label>
-
-                                    <input class="checkbox-size" type="radio" name="size" id="tsize-6">
-                                    <label class="for-checkbox-size" for="size-6">3XL</label>
-                                </div>
-                            </div>-->
+                            <!--                            <div class="pd-color">
+                                                            <h6>Màu sắc: </h6>
+                                                            <div class="row">
+                                                                <div class="col-12 pb-5">
+                                                                    <input class="checkbox-color" type="radio" name="color" id="color-1" value="1" checked="">
+                                                                    <label class="for-checkbox-color" for="color-1" style="background-color: black"></label>
+                            
+                                                                    <input class="checkbox-color" type="radio" name="color" id="color-2" value="2">
+                                                                    <label class="for-checkbox-color" for="color-2" style="background-color: blue"></label>
+                            
+                                                                    <input class="checkbox-color" type="radio" name="color" id="color-3" value="3">
+                                                                    <label class="for-checkbox-color" for="color-3" style="background-color: red"></label>
+                            
+                                                                    <input class="checkbox-color" type="radio" name="color" id="color-4" value="4">
+                                                                    <label class="for-checkbox-color" for="color-4" style="background-color: yellow"></label>
+                            
+                                                                    <input class="checkbox-color" type="radio" name="color" id="color-5" value="5">
+                                                                    <label class="for-checkbox-color" for="color-5" style="background-color: green"></label>
+                            
+                                                                    <input class="checkbox-color" type="radio" name="color" id="color-6" value="6">
+                                                                    <label class="for-checkbox-color" for="color-6" style="background-color: purple"></label>
+                            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                            
+                                                        <h6>Kích thước Áo/Quần....:  </h6>
+                                                        <div class="row">
+                                                            <div class="col-12 pb-5">
+                                                                <input class="checkbox-size" type="radio" name="size" id="size-1" checked="" value="1">
+                                                                <label class="for-checkbox-size" for="size-1">S</label>
+                            
+                                                                <input class="checkbox-size" type="radio" name="size" id="size-2">
+                                                                <label class="for-checkbox-size" for="size-2">M</label>
+                            
+                                                                <input class="checkbox-size" type="radio" name="size" id="size-3">
+                                                                <label class="for-checkbox-size" for="size-3">L</label>
+                            
+                                                                <input class="checkbox-size" type="radio" name="size" id="size-4">
+                                                                <label class="for-checkbox-size" for="size-4">XL</label>
+                            
+                                                                <input class="checkbox-size" type="radio" name="size" id="size-5">
+                                                                <label class="for-checkbox-size" for="size-5">2XL</label>
+                            
+                                                                <input class="checkbox-size" type="radio" name="size" id="tsize-6">
+                                                                <label class="for-checkbox-size" for="size-6">3XL</label>
+                                                            </div>
+                                                        </div>-->
                             <div class="row">
                                 <div class="countProduct col-lg-3" style="margin-left: 3%">
                                     <div id="decrement" onclick="stepper(this)"><b>-</b></div>
@@ -320,11 +320,12 @@
                                         <!-- Product price-->
                                         <div style="margin-bottom: 1.7%">
                                             Giá gốc: 
-                                            <span class="text-decoration-line-through">${product.original_price}đ</span>
+                                            <span class="text-decoration-line-through" ><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
+
                                         </div>
                                         <div>
                                             Giảm giá:
-                                            <span>${product.sale_price}đ</span>
+                                        <span><fmt:formatNumber value="${product.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                         </div>
                                     </div>
                                 </div>
@@ -361,7 +362,7 @@
                             <b>Đánh giá:</b>&nbsp;&nbsp;
                             <div class="form-group" >
                                 <select name = "star" style="border-radius: 100px;" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Chọn số sao bạn dành cho KingsMan</option>
+                                    <option selected>Chọn số sao bạn dành cho Beauty Lab</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

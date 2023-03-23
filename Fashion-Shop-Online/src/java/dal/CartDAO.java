@@ -139,15 +139,17 @@ public class CartDAO extends DBContext {
         }
     }
 
-    public void updateQuantityCart(int quantity, int cartId, int product_id) {
+    public void updateCart(int quantity, int total_cost,int cartId, int product_id ) {
         try {
             String sql = "UPDATE [dbo].[Cart]\n"
-                    + "   SET [quantity] = ?\n"
+                    + "   SET [quantity] = ? \n"
+                    + "  ,[total_cost] = ? \n"
                     + " WHERE cart_id = ? and product_id = ?";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, quantity);
-            st.setInt(2, cartId);
-            st.setInt(3, product_id);
+            st.setInt(2, total_cost);
+            st.setInt(3, cartId);
+            st.setInt(4, product_id);
             st.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);

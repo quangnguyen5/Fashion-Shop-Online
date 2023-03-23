@@ -1,8 +1,4 @@
-<%-- 
-    Document   : product
-    Created on : May 30, 2022, 2:30:55 PM
-    Author     : son22
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -101,11 +97,12 @@
                                 <a href="" class="product-name">${sessionScope.pNew.name}</a>
                                 <div class="product-price">
                                     <c:if test="${sessionScope.pNew.sale_price != 0}">
-                                        ${sessionScope.pNew.sale_price}đ
-                                        <del>${sessionScope.pNew.original_price}đ</del>
+                                        <fmt:formatNumber value="${sessionScope.pNew.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND
+                                        <fmt:formatNumber value="${sessionScope.pNew.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" var="formattedPrice" /> 
+                                        <del>${formattedPrice} VND</del>                                 
                                     </c:if>
                                     <c:if test="${sessionScope.pNew.sale_price == 0}">
-                                        ${sessionScope.pNew.original_price}đ
+                                        <fmt:formatNumber value="${sessionScope.pNew.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0"  /> VND
                                     </c:if>
                                 </div>
                             </div>
@@ -198,11 +195,13 @@
                                     <a href="" class="product-name">${p.name}</a>
                                     <div class="product-price">
                                         <c:if test="${p.sale_price != 0}">
-                                            ${p.sale_price}đ
-                                            <del>${p.original_price}đ</del>
+                                            <fmt:formatNumber value="${p.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND
+                                            <fmt:formatNumber value="${p.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" var="formattedPrice" /> 
+                                            <del>${formattedPrice} VND</del>
                                         </c:if>
                                         <c:if test="${p.sale_price == 0}">
-                                            ${p.original_price}đ
+                                            <fmt:formatNumber value="${p.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" var="formattedDiscount" /> 
+                                            <span><fmt:formatNumber value="${p.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" />VND</span>
                                         </c:if>
                                     </div>
                                 </div>

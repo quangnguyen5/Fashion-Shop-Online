@@ -1,8 +1,4 @@
-<%-- 
-    Document   : cart
-    Created on : Jun 2, 2022, 7:35:43 PM
-    Author     : dongh
---%>
+
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
@@ -58,7 +54,7 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+
                                             <th class="p-name">Tên sản phẩm</th>
                                             <th>Giá tiền</th>
                                             <th>Số lượng</th>
@@ -67,30 +63,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:set var="costTotal" value="${0}" />
+
                                         <c:forEach items="${listCart}" var="c">
+                                        <form action="update-cart">
+
                                             <tr>
-                                                <td class="p-price first-row">${c.product_id}</td>
                                                 <td class="cart-title first-row">
                                                     <h5>${c.product_name}</h5>
                                                 </td>
-                                                <td class="p-price first-row">${c.product_price}đ</td>
+                                                <td class="p-price first-row"><fmt:formatNumber value="${c.product_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</td>
                                                 <td class="qua-col first-row">
                                                     <div class="quantity">                                                
-                                                        <form action="update-cart">
-                                                            <input class="form-control form-control-sm" onchange="this.form.submit()" type="number" name="quantity" value="${c.quantity}">
-                                                            <input type="hidden" name="productId" value="${c.product_id}"/>
-                                                            <input type="hidden" name="cartId" value="${c.cart_id}"/>
-                                                        </form>
+                                                        <input class="form-control form-control-sm" onchange="this.form.submit()" type="number" name="quantity" value="${c.quantity}">
+                                                        <input type="hidden" name="productId" value="${c.product_id}"/>
+                                                        <input type="hidden" name="cartId" value="${c.cart_id}"/>
+                                                        <c:set var="total" value="${c.product_price}" />
+                                                        <c:set var="costTotal" value="${costTotal+c.quantity*c.product_price}"/>
+                                                        <input  type="hidden" name="total" value="${total}"/>
                                                     </div>
                                                 </td>
-                                                <td class="total-price first-row">${c.total_cost}đ</td>
+                                                <td class="total-price first-row"><fmt:formatNumber value="${c.quantity*c.product_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" />VND</td>
                                                 <td class="close-td first-row">
                                                     <a href="delete-cart?productId=${c.product_id}&userId=${c.user_id}" class="btn-outline-danger text-decoration-none">
                                                         <i class="ti-close"></i>
                                                     </a>
                                                 </td>
                                             </tr>
-                                        </c:forEach>
+                                        </form>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -108,7 +109,7 @@
                                 <div class="col-lg-4 offset-lg-4">
                                     <div class="proceed-checkout">
                                         <ul>
-                                            <li class="cart-total">Tổng tiền các sản phẩm <span>${sum}đ</span></li>
+                                            <li class="cart-total">Tổng tiền các sản phẩm <span><fmt:formatNumber value="${costTotal}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" />VND</span></li>
                                         </ul>
                                         <div class="proceed-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 
@@ -122,8 +123,6 @@
                     </div>
                 </div>
             </section>
-
-
             <!-- Js Plugins -->
             <script src="do1/js/jquery-3.3.1.min.js"></script>
             <script src="do1/js/bootstrap.min.js"></script>

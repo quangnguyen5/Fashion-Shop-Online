@@ -223,7 +223,7 @@
                     <div class="row border-top border-bottom">
                         <div class="row main align-items-center">
                             
-                            <!--<div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>-->
+                            <!--<div class="col-2"><img class="img-fluid" src=""></div>-->
                             <div class="col">
                                 <div class="row">${c.product_id}</div>
                             </div>
@@ -233,7 +233,7 @@
                             <div class="col" style="text-align: center;">
                                 <div class="text-muted">Số lượng: ${c.quantity}</div>
                             </div>
-                            <div class="col" style="text-align: center;">${c.product_price}đ</div>
+                            <div class="col" style="text-align: center;"><fmt:formatNumber value="${c.product_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</div>
                         </div>
                     </div>
                     </c:forEach>
@@ -262,7 +262,7 @@
                     
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                         <div class="col">TỔNG TIỀN</div>
-                        <div class="col text-right">${sum}đ</div>
+                        <div class="col text-right"><fmt:formatNumber value="${sum}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</div>
                         <input type="hidden" name="sum" value="${sum}">
                     </div>
                     <button type="submit" class="btn" style="font-size: 12px;">Gửi thông tin</button>

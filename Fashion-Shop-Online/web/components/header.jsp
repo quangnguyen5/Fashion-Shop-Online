@@ -1,8 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : May 30, 2022, 2:32:51 PM
-    Author     : son22
---%>
 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -32,7 +27,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand me-5 ti-joomla" href="home">FashionShop</a>
+            <a class="navbar-brand me-5 ti-joomla" href="home">Beauty Lab</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -64,7 +59,7 @@
                         <a class="nav-link" href="blog">Blog</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#">Liên hệ</a>
+                        <a class="nav-link" href="../contact.jsp">Liên hệ</a>
                     </li>
 
 
@@ -95,13 +90,13 @@
                                     <c:if test="${sessionScope.us.role_Id == 1}">
                                     <li><a class="dropdown-item" href="myorder">Danh sách đơn hàng</a></li>
                                     </c:if>
-                                    <c:if test="${sessionScope.us.role_Id == 2}">
-                                    <li><a class="dropdown-item" href="mkt-dashboard">Quản lý tiếp thị</a></li>
-                                    </c:if>
-                                    <c:if test="${sessionScope.us.role_Id == 3 || sessionScope.us.role_Id == 4}">
+
+                                <c:if test="${sessionScope.us.role_Id == 2 || sessionScope.us.role_Id == 3}">
                                     <li><a class="dropdown-item" href="sale-dashboard">Quản lý bán hàng</a></li>
-                                    </c:if>
-                                    <c:if test="${sessionScope.us.role_Id == 5}">
+                                    <li><a class="dropdown-item" href="mkt-dashboard">Quản lý tiếp thị</a></li>
+
+                                </c:if>
+                                <c:if test="${sessionScope.us.role_Id == 3}">
                                     <li><a class="dropdown-item" href="admin-dashboard">Quản lý hệ thống</a></li>
                                     </c:if>
 
@@ -116,9 +111,9 @@
                     </c:if>
                     <!-- begin icon header -->
                     <c:if test="${sessionScope.us.role_Id == 1 || sessionScope.us == null}">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-icon py-2 px-4" href="carts" tabindex="-1" aria-disabled="true"><i class="ti-shopping-cart"></i></a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-icon py-2 px-4" href="carts" tabindex="-1" aria-disabled="true"><i class="ti-shopping-cart"></i></a>
+                    </li>
                     </c:if>
                 </ul>
 
