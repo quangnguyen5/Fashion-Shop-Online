@@ -45,7 +45,7 @@ public class AdminAuthorization implements Filter {
 
         User user = (User) session.getAttribute("us");
 
-        if (user != null && user.getRole_Id().equals("3")) {
+        if (user != null && user.getRole_Id().equals("5")) {
             chain.doFilter(request, response);
             return;
         }

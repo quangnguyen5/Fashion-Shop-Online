@@ -147,8 +147,6 @@ public class AddProductController extends HttpServlet {
             String name = fields.get("name");
             String desciption = fields.get("desciption");
             String brief_infor = fields.get("brief_infor");
-            String gender = fields.get("gender");
-            System.out.println("genderadd: "+gender);
             boolean status = Boolean.parseBoolean(fields.get("status"));
             int quantity = Integer.parseInt(fields.get("quantity"));
             int original_price = Integer.parseInt(fields.get("original_price"));
@@ -156,7 +154,7 @@ public class AddProductController extends HttpServlet {
 
             int categoryId = Integer.parseInt(fields.get("categoryId"));
 
-            int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId, gender);
+            int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId);
             p.AddImageProduct(new_id, url_thumbnail);
             response.sendRedirect("marketingproductlist");
         } catch (FileUploadException ex) {

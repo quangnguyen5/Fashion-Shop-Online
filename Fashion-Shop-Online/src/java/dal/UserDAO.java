@@ -99,7 +99,6 @@ public class UserDAO extends DBContext {
             st.setInt(6, uid);
             st.executeUpdate();
         } catch (Exception e) {
-            System.out.println(e);
         }
     }
 
@@ -352,7 +351,7 @@ public class UserDAO extends DBContext {
     public String getUrlImageById(int id) {
         String sql = "SELECT [avatar]\n"
                 + "  FROM [Fashion_Shop_Online].[dbo].[User]\n"
-                + "  Where userId = ?";
+                + "  Where userId = 7";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, id);

@@ -94,7 +94,7 @@ public class ProductListController extends HttpServlet {
             // Get list product, new, category, slider
             List<Product> listProduct = p.getProductWithPaging(page, PAGE_SIZE, searchKey, categoryId, type, value, "=1", gender);
             List<Category> l = c.getAllCategory();
-            Product pNew = p.getProductNew(gender);
+            Product pNew = p.getProductNew();
             Slider listSlider_HomePageFirst = new SliderDAO().getFirstSlider();
             List<Slider> listSlider_HomePageAll = new SliderDAO().getALLSlider();
             

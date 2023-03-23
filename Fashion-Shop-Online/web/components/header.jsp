@@ -1,4 +1,4 @@
-
+    
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,7 +27,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand me-5 ti-joomla" href="home">BeautyLab</a>
+            <a class="navbar-brand me-5 ti-joomla" href="home">Beauty Lab</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -110,10 +110,12 @@
                         </li>
                     </c:if>
                     <!-- begin icon header -->
-                    <c:if test="${sessionScope.us.role_Id == 1 || sessionScope.us == null}">
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-icon py-2 px-4" href="carts" tabindex="-1" aria-disabled="true"><i class="ti-shopping-cart"></i></a>
-                    </li>
+  <c:if test="${sessionScope.us.role_Id == -1 || sessionScope.us == null}">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-icon py-2 px-4" href="${sessionScope.us == null ? 'home' : 'carts'}" tabindex="-1" aria-disabled="true">
+                                <i class="ti-shopping-cart"></i> <i class="btn btn-light ms-lg-1">${sessionScope.listCart.size()}</i>
+                            </a>
+                        </li>
                     </c:if>
                 </ul>
 
