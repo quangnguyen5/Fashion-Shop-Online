@@ -70,9 +70,6 @@
                     <input type="hidden" name="gender" value="${gender}">
                 </form>
 
-
-
-
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <c:if test="${sessionScope.us != null}">
                         <div class="btn-group">
@@ -111,13 +108,12 @@
                         </li>
                     </c:if>
                     <!-- begin icon header -->
-                    <c:if test="${sessionScope.us.role_Id == 1 || sessionScope.us == null}">
                         <li class="nav-item">
                             <a class="nav-link btn btn-icon py-2 px-4" href="${sessionScope.us == null ? 'home' : 'carts'}" tabindex="-1" aria-disabled="true">
-                                <i class="ti-shopping-cart"></i> <i class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.listCart.size()}</i>
+                                <i class="ti-shopping-cart"></i> <span class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.listCart.size()}</span>
                             </a>
                         </li>
-                    </c:if>
+            
                 </ul>
 
             </div>

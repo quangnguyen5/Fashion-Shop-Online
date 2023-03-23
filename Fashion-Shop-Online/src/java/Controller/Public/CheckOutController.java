@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -30,6 +30,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Cart;
 import model.Customer;
 import model.Order;
 import model.OrderDetail;
@@ -57,7 +58,7 @@ public class CheckOutController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             String method = request.getParameter("payment-method");
 
             if (method.equalsIgnoreCase("vnpay")) {
@@ -169,6 +170,8 @@ public class CheckOutController extends HttpServlet {
         User u = (User) session.getAttribute("us");
         int user_id = u.getUser_Id();
         cd.deleteCartByUserId(user_id);
+        List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
+        listCart = cd.getAllCartByUserId(user_id);
         Order o = od.getOrderNew(user_id);
         int saler_id = od.getAssignOrder();
 
@@ -393,6 +396,8 @@ public class CheckOutController extends HttpServlet {
         } catch (Exception ex) {
             System.out.println("Usage: " + ex.getMessage());
         }
+        session.setAttribute("listCart", listCart);
+
         request.setAttribute("notification", "Hãy kiểm tra hòm thư của bạn");
 
         request.getRequestDispatcher("cartCompletion.jsp").forward(request, response);

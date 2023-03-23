@@ -5,6 +5,7 @@
  */
 package Controller.Common;
 
+import dal.CartDAO;
 import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +15,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
+import model.Cart;
 import model.User;
 
 /**
@@ -67,7 +70,6 @@ public class LoginController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String historyUrl = (String) session.getAttribute("historyUrl");
-        
         UserDAO dao = new UserDAO();
         User u = dao.login(email, password);
         if (u == null) {
