@@ -34,7 +34,7 @@
 
                         <c:forEach items="${sessionScope.listSlider_HomePageAll}" var="s" >
                             <div class="carousel-item ${s.id == sessionScope.sliderFirst.id ? "active" : ""}">
-                                <a href="${s.backlink}"><img src="${s.slider_image}" class="d-block w-100" alt="..."></a>
+                                <a href="${s.backlink}"><img src="${s.slider_image}" class="d-block w-100" alt=""></a>
 
                             </div> 
 
@@ -145,12 +145,6 @@
                                                           top center / cover no-repeat">
                                 <div class="category-content">Quần</div>
                             </div></a>
-
-
-
-
-
-
 
                         <div class="clear"></div>
                     </div> 

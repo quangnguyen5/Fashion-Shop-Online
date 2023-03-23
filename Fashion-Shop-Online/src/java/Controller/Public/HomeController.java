@@ -57,7 +57,7 @@ public class HomeController extends HttpServlet {
         session.setAttribute("listCategoriesMale", l);
         session.setAttribute("listCategoriesFemale", l1);
 
-//        System.out.println(l.get(0).getGender());
+       System.out.println(l.get(0).getGender());
 
         int totalSlider = new SliderDAO().getcountSlider();
         session.setAttribute("totalSlider", totalSlider);

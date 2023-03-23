@@ -20,10 +20,7 @@ import jakarta.servlet.http.HttpSession;
 import model.Blog;
 import model.CategoryBlog;
 
-/**
- *
- * @author Veetu
- */
+
 @WebServlet(name = "BlogDetailController", urlPatterns = {"/blogDetail"})
 public class BlogDetailController extends HttpServlet {
 

@@ -43,7 +43,8 @@
 
                     <c:forEach items="${sessionScope.listSlider_HomePageAll}" var="s" >
                         <div class="carousel-item ${s.id == sessionScope.sliderFirst.id ? "active" : ""}">
-                            <img src="${s.slider_image}" class="d-block w-100" alt="...">
+                            <a href="${s.backlink}"><img src="${s.slider_image}" class="d-block w-100" alt=""></a>
+
                         </div> 
 
                     </c:forEach>
