@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -220,7 +220,7 @@ public class CheckOutController extends HttpServlet {
                     + "                                                    <a href=\"https://thevapeclub.vn\"\n"
                     + "                                                       style=\"font-size:30px;text-decoration:none;color:#333\"\n"
                     + "                                                       target=\"_blank\"\n"
-                    + "                                                       data-saferedirecturl=\"https://www.google.com/url?q=https://thevapeclub.vn&amp;source=gmail&amp;ust=1655483413010000&amp;usg=AOvVaw3mqQmYH-B0jekACwJJY5LC\">Kingsman</a>\n"
+                    + "                                                       data-saferedirecturl=\"https://www.google.com/url?q=https://thevapeclub.vn&amp;source=gmail&amp;ust=1655483413010000&amp;usg=AOvVaw3mqQmYH-B0jekACwJJY5LC\">BeautyLab</a>\n"
                     + "                                                </h1>\n"
                     + "\n"
                     + "                                            </td>\n"
@@ -372,7 +372,7 @@ public class CheckOutController extends HttpServlet {
                     + "                            tại\n"
                     + "                            <a href=\"mailto:thevapeclub@helix.com.vn\"\n"
                     + "                               style=\"font-size:14px;text-decoration:none;color:#1666a2\"\n"
-                    + "                               target=\"_blank\">sonntthe151167@fpt.edu.vn</a>\n"
+                    + "                               target=\"_blank\">quangnphe160125@fpt.edu.vn</a>\n"
                     + "                        </p>\n"
                     + "                    </td>\n"
                     + "                </tr>\n"

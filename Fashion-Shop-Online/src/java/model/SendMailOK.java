@@ -67,10 +67,10 @@ public class SendMailOK {
             try {
                 String smtpServer = "smtp.gmail.com";
                 String to = "quangvip44@gmail.com";
-                String from = "quangnphe160125@fpt.edu.vn";
+                String from = "beautylabg4@gmail.com";
                 String subject = "Hello from Java";
                 String body = "Test using java to send mail.";
-                String password = "nguyenquang0208";
+                String password = "08092002aA";
                 send(smtpServer, to, from, password, subject, body);
 
             } catch (Exception ex) {

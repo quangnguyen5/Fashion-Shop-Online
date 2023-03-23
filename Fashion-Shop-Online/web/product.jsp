@@ -216,19 +216,19 @@
             <ul class="pagination">
                 <li class="page-item">
                     <a <c:if test="${page!=1}">                         
-                            href="list?page=${page-1}${historyKey}${historyCategoryId}${historyValue}${historyType}"
+                            href="list?page=${page-1}${historyKey}${historyCategoryId}${historyValue}${historyType}&gender=${gender}"
                         </c:if> class="page-link" aria-label="Previous">
                         <span  aria-hidden="true">«</span>
                     </a>
                 </li>
 
                 <c:forEach begin="1" end="${totalPage}" var="i">
-                    <li class="page-item ${i==page ?"active" : ""}"><a class="page-link" href="list?page=${i}${historyKey}${historyCategoryId}${historyValue}${historyType}">${i}</a></li>
+                    <li class="page-item ${i==page ?"active" : ""}"><a class="page-link" href="list?page=${i}${historyKey}${historyCategoryId}${historyValue}${historyType}&gender=${gender}">${i}</a></li>
                     </c:forEach>
 
                 <li class="page-item">
                     <a <c:if test="${page!=totalPage}">
-                            href="list?page=${page+1}${historyKey}${historyCategoryId}${historyValue}${historyType}"
+                            href="list?page=${page+1}${historyKey}${historyCategoryId}${historyValue}${historyType}&gender=${gender}"
                         </c:if> class="page-link" aria-label="Next">
                         <span aria-hidden="true">»</span>
                     </a>

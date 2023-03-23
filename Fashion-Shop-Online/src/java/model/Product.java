@@ -33,4 +33,5 @@ public class Product {
     private Date update_date;
     private int category_id;
     private double rated_star;
+    private String gender;
 }

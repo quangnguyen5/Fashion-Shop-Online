@@ -48,7 +48,8 @@ public class ProductListController extends HttpServlet {
             CategoryDAO c = new CategoryDAO();
             ProductDAO p = new ProductDAO();
             String status = "!= -1";
-
+            String gender = request.getParameter("gender");
+ 
             // Set page
             int page = 1;
             String strPage = request.getParameter("page");
@@ -84,14 +85,14 @@ public class ProductListController extends HttpServlet {
             }
             
             // Set total page 
-            int totalProduct = p.getTotalProduct(searchKey, categoryId, "=1");
+            int totalProduct = p.getTotalProduct(searchKey, categoryId, "=1", gender);
             int totalPage = totalProduct / PAGE_SIZE;
             if (totalProduct % PAGE_SIZE != 0) {
                 totalPage += 1;
             }
 
             // Get list product, new, category, slider
-            List<Product> listProduct = p.getProductWithPaging(page, PAGE_SIZE, searchKey, categoryId, type, value, "=1");
+            List<Product> listProduct = p.getProductWithPaging(page, PAGE_SIZE, searchKey, categoryId, type, value, "=1", gender);
             List<Category> l = c.getAllCategory();
             Product pNew = p.getProductNew();
             Slider listSlider_HomePageFirst = new SliderDAO().getFirstSlider();
@@ -99,7 +100,7 @@ public class ProductListController extends HttpServlet {
             
             // Set param request to jsp page
             session.setAttribute("pNew", pNew);
-            session.setAttribute("listCategories", l);
+//            session.setAttribute("listCategories", l);
             session.setAttribute("listProduct", listProduct);
             session.setAttribute("historyUrl", "list");
             String history = "list?page="+page;
@@ -123,6 +124,11 @@ public class ProductListController extends HttpServlet {
                 request.setAttribute("historyType", "&type=" + strType);
                 request.setAttribute("type", strType);
             }                    
+            if(gender != null){
+                history = history +"&gender=" + gender;
+                request.setAttribute("historyGender", "&gender=" + gender);
+                request.setAttribute("gender", gender);
+            }
             request.setAttribute("sliderFirst", listSlider_HomePageFirst);           
             request.setAttribute("listSlider_HomePageAll", listSlider_HomePageAll);
             request.setAttribute("page", page);

@@ -46,7 +46,6 @@ public class ListDetailController extends HttpServlet {
             int productId = Integer.parseInt(request.getParameter("productId"));
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             User u = (User) session.getAttribute("us");
-
             Product product = new ProductDAO().getProductById(productId);
             FeedbackDAO fed = new FeedbackDAO();
             OrderDao od = new OrderDao();

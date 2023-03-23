@@ -484,4 +484,54 @@ public class ProductDAO extends DBContext {
         }
     }
 
+    public List<Product> getProductWithPaging(int page, int PAGE_SIZE, String searchKey, String categoryId, String type, String value, String status, String gender) {
+        List<Product> list = new ArrayList<>();
+        String sql = "select * from Product\n"
+                + "where gender = N'" + gender + "' and category_id " + categoryId + " and status " + status + " and product_name like N'%" + searchKey + "%'\n"
+                + " order by " + value + " " + type + " offset (?-1)*? row fetch next ? row only";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, page);
+            st.setInt(2, PAGE_SIZE);
+            st.setInt(3, PAGE_SIZE);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Product p = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .original_price(rs.getInt(3))
+                        .sale_price(rs.getInt(4))
+                        .desciption(rs.getString(5))
+                        .brief_infor(rs.getString(6))
+                        .status(rs.getBoolean(7))
+                        .quantity(rs.getInt(8))
+                        .category_id(rs.getInt(9))
+                        .update_date(rs.getDate(10))
+                        .image(getImgProduct(rs.getInt(1)))
+                        .rated_star(getRatedProduct(rs.getInt(1)))
+                        .build();
+
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+    public int getTotalProduct(String searchKey, String categoryId, String status, String gender) {
+        String sql = "Select count(product_id) from Product "
+                + "where gender = N'"+ gender+"' and category_id " + categoryId + " and status " + status + " and product_name like N'%" + searchKey + "%'\n";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
 }

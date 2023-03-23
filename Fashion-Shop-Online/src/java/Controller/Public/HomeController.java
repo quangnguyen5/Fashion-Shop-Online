@@ -6,6 +6,7 @@
 package Controller.Public;
 
 import dal.BlogDAO;
+import dal.CategoryDAO;
 import dal.ProductDAO;
 import dal.SliderDAO;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Blog;
+import model.Category;
 import model.Product;
 import model.Slider;
 
@@ -41,25 +43,33 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        
+
         List<Blog> listBlog_HomePage = new BlogDAO().getAllBlog();
         session.setAttribute("listBlog_HomePage", listBlog_HomePage);
-        
+
         Slider listSlider_HomePageFirst = new SliderDAO().getFirstSlider();
         session.setAttribute("sliderFirst", listSlider_HomePageFirst);
-        
+        CategoryDAO c = new CategoryDAO();
+
+        List<Category> l = c.getAllCategoryMale();
+        List<Category> l1 = c.getAllCategoryFemale();
+
+        session.setAttribute("listCategoriesMale", l);
+        session.setAttribute("listCategoriesFemale", l1);
+
+        System.out.println(l.get(0).getGender());
+
         int totalSlider = new SliderDAO().getcountSlider();
-        session.setAttribute("totalSlider", totalSlider);        
-        
+        session.setAttribute("totalSlider", totalSlider);
+
         List<Slider> listSlider_HomePageAll = new SliderDAO().getALLSlider();
         session.setAttribute("listSlider_HomePageAll", listSlider_HomePageAll);
-        
+
         List<Product> list4product = new ProductDAO().get4ProductRandom();
         session.setAttribute("list4product", list4product);
-        
+
         session.setAttribute("historyUrl", "home");
-        
-        
+
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

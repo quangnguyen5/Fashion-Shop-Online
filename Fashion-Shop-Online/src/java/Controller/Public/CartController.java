@@ -48,6 +48,7 @@ public class CartController extends HttpServlet {
             for (Cart o : listCart) {
                 sum += o.getTotal_cost();
             }
+            System.out.println(sum);
             request.setAttribute("sum", sum);
             session.setAttribute("historyUrl", "carts");
             request.setAttribute("listCart",  listCart);
