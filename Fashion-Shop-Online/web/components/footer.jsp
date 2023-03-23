@@ -55,8 +55,7 @@
         <div class="feedback-footer">
             <h2 class="mt-40">The Beauty Lab lắng nghe bạn!</h2>
             <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa</p>
-            <a data-toggle="modal" data-dismiss="modal" data-target="#feedback_common"><input class="Button-Feedback mt-16" type="submit" value="Gửi ý kiến"></a> 
-            <br>
+                <br>
             <br>
             <br>
             <div class="contact-info">

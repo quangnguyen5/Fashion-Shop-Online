@@ -58,9 +58,9 @@
                     <li class="nav-item me-4">
                         <a class="nav-link" href="blog">Blog</a>
                     </li>
-                    <li class="nav-item me-4">
+                   <!-- <li class="nav-item me-4">
                         <a class="nav-link" href="../contact.jsp">Liên hệ</a>
-                    </li>
+                    </li>-->
 
 
                 </ul>
@@ -110,10 +110,10 @@
                         </li>
                     </c:if>
                     <!-- begin icon header -->
-  <c:if test="${sessionScope.us.role_Id == -1 || sessionScope.us == null}">
+                    <c:if test="${sessionScope.us.role_Id == 1 || sessionScope.us == null}">
                         <li class="nav-item">
                             <a class="nav-link btn btn-icon py-2 px-4" href="${sessionScope.us == null ? 'home' : 'carts'}" tabindex="-1" aria-disabled="true">
-                                <i class="ti-shopping-cart"></i> <i class="btn btn-light ms-lg-1">${sessionScope.listCart.size()}</i>
+                                <i class="ti-shopping-cart"></i> <i class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.listCart.size()}</i>
                             </a>
                         </li>
                     </c:if>
