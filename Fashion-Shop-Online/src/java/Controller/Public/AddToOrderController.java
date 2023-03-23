@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.Customer;
+package Controller.Public;
 
+import dal.CartDAO;
 import dal.OrderDao;
 import dal.OrderDetailDAO;
 import java.io.IOException;
@@ -16,18 +17,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Cart;
 import model.Order;
-import model.OrderDetail;
+import model.User;
 
 /**
  *
- * @author Admin
+ * @author dongh
  */
-public class OrderDetailController extends HttpServlet {
+public class AddToOrderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * methods
      *
      * @param request servlet request
      * @param response servlet response
@@ -37,20 +39,33 @@ public class OrderDetailController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            String fullname = request.getParameter("fullname");
+            String phone = request.getParameter("phone");
+            String address = request.getParameter("address");
+            String note = request.getParameter("note");
+            int sum = Integer.parseInt(request.getParameter("sum"));
 
-        String orderId_raw = request.getParameter("orderId");
-        int orderId = Integer.parseInt(orderId_raw);
-        OrderDetailDAO dal = new OrderDetailDAO();
-        OrderDao dao = new OrderDao();
-        List<OrderDetail> Order_Detail = dal.getDetailAllOrder(orderId);
-        request.setAttribute("Order_Detail", Order_Detail);
-
-        List<Order> listMyOrderinDetail = dao.getAllOrderInDetail(orderId);
-        request.setAttribute("listMyOrderinDetail", listMyOrderinDetail);
-
-        session.setAttribute("historyUrl", "order-detail?orderId=" + orderId_raw);
-        request.getRequestDispatcher("order-detail.jsp").forward(request, response);
+            CartDAO c = new CartDAO();
+            OrderDao od = new OrderDao();
+            OrderDetailDAO odd = new OrderDetailDAO();
+            
+            HttpSession session = request.getSession();
+            User u = (User) session.getAttribute("us");
+            int user_id = u.getUser_Id();
+            int order_id = od.createNewOrder(sum, fullname, phone, address, user_id, note);
+            List<Cart> listCart = c.getAllCartByUserId(user_id);
+            odd.addCartToOrder(listCart, order_id);
+            
+            request.setAttribute("fullname", fullname);
+            request.setAttribute("phone", phone);
+            request.setAttribute("address", address);
+            
+            request.getRequestDispatcher("checkout").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

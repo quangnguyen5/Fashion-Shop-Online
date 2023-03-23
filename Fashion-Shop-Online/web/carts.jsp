@@ -74,8 +74,8 @@
                                                 </td>
                                                 <td class="p-price first-row"><fmt:formatNumber value="${c.product_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</td>
                                                 <td class="qua-col first-row">
-                                                    <div class="quantity">                                                
-                                                        <input class="form-control form-control-sm" onchange="this.form.submit()" type="number" name="quantity" value="${c.quantity}">
+                                                    <div class="quantity">    
+                                                        <input class="form-control form-control-sm" type="number" name="quantity" min="1" max="${c.product_quantity}" step="1" value="${c.quantity}" id="my-input" onchange="this.form.submit()" >
                                                         <input type="hidden" name="productId" value="${c.product_id}"/>
                                                         <input type="hidden" name="cartId" value="${c.cart_id}"/>
                                                         <c:set var="total" value="${c.product_price}" />

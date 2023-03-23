@@ -22,10 +22,10 @@ import java.util.Random;
  * @author Khuong Hung
  */
 public class Config {
-    public static String vnp_PayUrl = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    public static String vnp_Returnurl = "http://localhost:9999/fashion-shop-online/successful";
-    public static String vnp_TmnCode = "P3QYBBA2";
-    public static String vnp_HashSecret = "MDVXLNRNFJMIEDLBGAXOIUUNDAGPEQBX";
+    public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+    public static String vnp_Returnurl = "http://localhost:9999/successful";
+    public static String vnp_TmnCode = "0TDD0XGL";
+    public static String vnp_HashSecret = "QVGLHRVHWZPVMQMFSOGKUJIVJBCYAPRO";
     public static String vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
 
     public static String md5(String message) {

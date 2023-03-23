@@ -100,7 +100,7 @@ public class ResetPasswordController extends HttpServlet {
                         + "\n"
                         + "<body>\n"
                         + "    <h3 style=\"color: blue;\">Hello " + user.getFull_Name() + "</h3>\n"
-                        + "    <div>Chúng tôi nhận được yêu cầu đặt lại mật khẩu của bạn tại http://localhost:8080/fashion-shop-online/home.</div>\n"
+                        + "    <div>Chúng tôi nhận được yêu cầu đặt lại mật khẩu của bạn tại http://localhost:9999/fashion-shop-online/home.</div>\n"
                         + "    <h4 style=\"color: green;\">Mật khẩu cũ của bạn là :" + user.getPassword() + "</h4>\n"
                         + "    <div>Nếu bạn không yêu cầu, bạn có thể bỏ qua email này. Nếu thực sự bạn quên mật khẩu, hãy click ngay vào nút bên trên , đăng nhập lại vào KingsMan để đổi mật khẩu , chúc bạn có một buổi mua sắm tuyệt vời với KingsMan.</div>\n"
                         + "    <div>Hi vọng bạn sẽ không quên mật khẩu của mình, nhưng nếu có quên thì chúng tôi rất sẵn sàng hỗ trợ bạn.</div>\n"

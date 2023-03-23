@@ -286,7 +286,7 @@
                             <div class="row">
                                 <div class="countProduct col-lg-3" style="margin-left: 3%">
                                     <div id="decrement" onclick="stepper(this)"><b>-</b></div>
-                                    <input type="number" name="quantity" min="1" max="100" step="1" value="1" id="my-input" readonly>
+                                    <input type="number" name="quantity" min="1" max="${product.quantity}" step="1" value="1" id="my-input" readonly>
                                     <input type="hidden" name="productId" value="${product.id}" />
                                     <div id="increment" onclick="stepper(this)"><b>+</b></div>
                                 </div>

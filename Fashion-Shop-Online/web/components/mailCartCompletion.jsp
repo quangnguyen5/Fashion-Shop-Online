@@ -33,7 +33,7 @@
                                                     <a href="https://thevapeclub.vn"
                                                        style="font-size:30px;text-decoration:none;color:#333"
                                                        target="_blank"
-                                                       data-saferedirecturl="https://www.google.com/url?q=https://thevapeclub.vn&amp;source=gmail&amp;ust=1655483413010000&amp;usg=AOvVaw3mqQmYH-B0jekACwJJY5LC">Kingsman</a>
+                                                       data-saferedirecturl="https://www.google.com/url?q=https://thevapeclub.vn&amp;source=gmail&amp;ust=1655483413010000&amp;usg=AOvVaw3mqQmYH-B0jekACwJJY5LC">BeautyLab</a>
                                                 </h1>
 
                                             </td>

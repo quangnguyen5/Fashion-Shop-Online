@@ -23,7 +23,7 @@ public class CartDAO extends DBContext {
 
     public List<Cart> getAllCartByUserId(int user_id) {
         List<Cart> list = new ArrayList<>();
-        String sql = "select * from Cart where [user_id] = ?";
+        String sql = "select * from Cart join Product on Cart.product_id = Product.product_id where [user_id] = ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, user_id);
@@ -37,6 +37,7 @@ public class CartDAO extends DBContext {
                         .quantity(rs.getInt(5))
                         .total_cost(rs.getInt(6))
                         .user_id(rs.getInt(7))
+                        .product_quantity(rs.getInt(15))
                         .build();
 
                 list.add(c);

@@ -63,7 +63,7 @@ public class CheckOutController extends HttpServlet {
             if (method.equalsIgnoreCase("vnpay")) {
                 int id = Integer.parseInt(request.getParameter("order_id"));
                 int total_cost = Integer.parseInt(request.getParameter("total_cost"));
-                String vnp_Version = "2.0.0";
+                String vnp_Version = "2.1.0";
                 String vnp_Command = "pay";
                 String vnp_OrderInfo = "" + id;
                 String orderType = "billpayment";
