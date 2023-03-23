@@ -387,7 +387,7 @@ public class CheckOutController extends HttpServlet {
                     + "     height=\"0\" style=\"min-width:600px;height:0\" class=\"CToWUd\">\n"
                     + "</body>\n"
                     + "</html>";
-            String password = "qdvdkjzmyumxidwp";
+            String password = "kgymottpwsqatula";
             SendMailOK.send(smtpServer, to, from, password, subject, body);
 
         } catch (Exception ex) {
