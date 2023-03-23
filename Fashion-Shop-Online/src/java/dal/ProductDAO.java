@@ -180,7 +180,6 @@ public class ProductDAO extends DBContext {
                         .quantity(rs.getInt(8))
                         .category_id(rs.getInt(9))
                         .update_date(rs.getDate(10))
-                        .gender(rs.getString(11))
                         .image(getImgProduct(rs.getInt(1)))
                         .rated_star(getRatedProduct(rs.getInt(1)))
                         .build();
@@ -522,7 +521,7 @@ public class ProductDAO extends DBContext {
 
     public int getTotalProduct(String searchKey, String categoryId, String status, String gender) {
         String sql = "Select count(product_id) from Product "
-                + "where gender = N'" + gender + "' and category_id " + categoryId + " and status " + status + " and product_name like N'%" + searchKey + "%'\n";
+                + "where gender = N'"+ gender+"' and category_id " + categoryId + " and status " + status + " and product_name like N'%" + searchKey + "%'\n";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();

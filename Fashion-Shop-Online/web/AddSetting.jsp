@@ -63,7 +63,6 @@
                 border: 50%;
             }
         </style>
-
     </head>
     <body class="sb-nav-fixed">
         <%@include file="components/account.jsp" %>
@@ -82,7 +81,7 @@
                                 <div class="col-md-5">
                                     <div class="p-3 py-5">
                                         <div class="col-md-12">Loại
-                                            <select class="form-control" id="selectType" name="type" aria-label="Default select example" >
+                                            <select class="form-control"  name="type" aria-label="Default select example" >
                                                 <c:forEach items="${sessionScope.listTypeSetting}" var="c">
                                                     <option value="${c.id}">
                                                         ${c.name}
@@ -133,19 +132,6 @@
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script>
-            const el = document.getElementById('selectType');
-            const test = document.querySelector(".form-control");
-            const box = document.getElementById('box');
-            el.onchange = (e) => {
-                console.log(e.target.value);
-                if(e.target.value==1){
-                    box.style.display = 'block';
-                } else {
-                    box.style.display = 'none';
-                }
-            };
-        </script>
     </body>
 </html>
 

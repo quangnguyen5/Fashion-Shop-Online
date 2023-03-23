@@ -216,14 +216,6 @@
         <servlet-name>FeedbackCommonController</servlet-name>
         <servlet-class>Controller.Public.FeedbackCommonController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>CustomerListController</servlet-name>
-        <servlet-class>Controlller.Marketing.CustomerListController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CustomerDetailController</servlet-name>
-        <servlet-class>Controlller.Marketing.CustomerDetailController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -439,14 +431,6 @@
     <servlet-mapping>
         <servlet-name>FeedbackCommonController</servlet-name>
         <url-pattern>/feedback_common</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CustomerListController</servlet-name>
-        <url-pattern>/customer-list</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CustomerDetailController</servlet-name>
-        <url-pattern>/customer-detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -99,7 +99,7 @@
 
             .card-footer {
                 background-color: #6c757d;
-                color: #ae2121;;
+                color: #fff;
             }
 
             .cart-footer h2 {
@@ -157,9 +157,8 @@
             <div class="card card-1">
                 <div class="card-header bg-white">
                     <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
-                        <div>   </div>
                         <div class="col my-auto"> <h4 class="mb-0" style="display: flex; justify-content: center">Thanks for your orders</h4> </div>
-<!--                        <div class="col-auto text-center  my-auto pl-0 pt-sm-4"><p class="mb-4 pt-0 Glasses">Fashion For Everyone</p>  </div>-->
+                        <div class="col-auto text-center  my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3"  src="https://salt.tikicdn.com/ts/product%2F73%2F31%2F8f%2F0d2df2f2799036d45c6ed06b946d361e.png" width="115" height="115"> <p class="mb-4 pt-0 Glasses">Fashion For Everyone</p>  </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -232,14 +231,14 @@
                     <div class="card-footer">
                         <div class="jumbotron-fluid">
                             <div class="row justify-content-between ">
-                                <div class="col-sm-auto col-auto my-auto"><img class="img-fluid my-auto align-self-center "></div>
+                                <div class="col-sm-auto col-auto my-auto"><img class="img-fluid my-auto align-self-center " src="https://salt.tikicdn.com/ts/product%2F73%2F31%2F8f%2F0d2df2f2799036d45c6ed06b946d361e.png" width="115" height="115"></div>
                                 <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">TOTAL PAID</h2></div>
                                 <div class="col-auto my-auto ml-auto"><h1 class="display-3 ">${k.total_cost}đ</h1></div>
                             </div>
                             <div class="row mb-3 mt-3 mt-md-0">
-                                <div class="col-auto border-line"> <small class="text-black-50">Cảm ơn vì</small></div>
-                                <div class="col-auto border-line"> <small class="text-black-50">đã ủng hộ</small></div>
-                                <div class="col-auto "><small class="text-black-50">Chúng tôi<3 </small> </div>
+                                <div class="col-auto border-line"> <small class="text-white">Cảm ơn vì</small></div>
+                                <div class="col-auto border-line"> <small class="text-white">đã ủng hộ</small></div>
+                                <div class="col-auto "><small class="text-white">Chúng tôi<3 </small> </div>
                             </div>
                         </div>
                     </div>
