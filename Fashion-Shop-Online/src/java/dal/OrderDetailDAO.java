@@ -91,7 +91,7 @@ public class OrderDetailDAO extends DBContext {
                         .quantity(rs.getInt(3))
                         .order_id(rs.getInt(4))
                         .product_name(rs.getString(6))
-                        .product_image(rs.getString(20))
+                        .product_image(rs.getString(21))
                         .category_name(rs.getString(22))
                         .product_id(rs.getInt(5))
                         .category_id(rs.getInt(16))
