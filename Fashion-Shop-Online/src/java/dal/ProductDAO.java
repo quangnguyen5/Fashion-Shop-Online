@@ -180,6 +180,7 @@ public class ProductDAO extends DBContext {
                         .quantity(rs.getInt(8))
                         .category_id(rs.getInt(9))
                         .update_date(rs.getDate(10))
+                        .gender(rs.getString(11))
                         .image(getImgProduct(rs.getInt(1)))
                         .rated_star(getRatedProduct(rs.getInt(1)))
                         .build();
@@ -521,7 +522,7 @@ public class ProductDAO extends DBContext {
 
     public int getTotalProduct(String searchKey, String categoryId, String status, String gender) {
         String sql = "Select count(product_id) from Product "
-                + "where gender = N'"+ gender+"' and category_id " + categoryId + " and status " + status + " and product_name like N'%" + searchKey + "%'\n";
+                + "where gender = N'" + gender + "' and category_id " + categoryId + " and status " + status + " and product_name like N'%" + searchKey + "%'\n";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -530,6 +531,71 @@ public class ProductDAO extends DBContext {
             }
         } catch (SQLException e) {
             System.out.println(e);
+        }
+        return 0;
+    }
+
+    public Product getProductNew(String gender) {
+        List<Product> list = new ArrayList<>();
+        String sql = "select top 1 * from Product where gender = N'" + gender + "' order by update_date desc";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Product p = Product.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .original_price(rs.getInt(3))
+                        .sale_price(rs.getInt(4))
+                        .desciption(rs.getString(5))
+                        .brief_infor(rs.getString(6))
+                        .status(rs.getBoolean(7))
+                        .quantity(rs.getInt(8))
+                        .category_id(rs.getInt(9))
+                        .update_date(rs.getDate(10))
+                        .image(getImgProduct(rs.getInt(1)))
+                        .rated_star(getRatedProduct(rs.getInt(1)))
+                        .build();
+
+                return p;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public int addNewProduct(String name, String desciption, String brief_infor, int quantity, boolean status, int original_price, int sale_price, int categoryId, String gender) {
+        try {
+            String sql = "INSERT INTO [dbo].[Product]\n"
+                    + "           ([product_name]\n"
+                    + "           ,[original_prices]\n"
+                    + "           ,[sale_prices]\n"
+                    + "           ,[product_details]\n"
+                    + "           ,[brief_infor]\n"
+                    + "           ,[status]\n"
+                    + "           ,[quantity]\n"
+                    + "           ,[category_id]"
+                    + "           ,[gender])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,?,?,?,?,?,?)";
+            PreparedStatement st = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st.setString(1, name);
+            st.setInt(2, original_price);
+            st.setInt(3, sale_price);
+            st.setString(4, desciption);
+            st.setString(5, brief_infor);
+            st.setBoolean(6, status);
+            st.setInt(7, quantity);
+            st.setInt(8, categoryId);
+            st.setString(9, gender);
+            st.executeUpdate();
+            ResultSet rs = st.getGeneratedKeys();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
         }
         return 0;
     }

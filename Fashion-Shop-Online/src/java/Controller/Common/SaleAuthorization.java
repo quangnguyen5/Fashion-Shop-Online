@@ -41,7 +41,7 @@ public class SaleAuthorization implements Filter {
 
         User user = (User) session.getAttribute("us");
 
-        if (user != null && user.getRole_Id().equals("3")|| user.getRole_Id().equals("4") && user != null) {
+        if (user != null && user.getRole_Id().equals("3")|| user.getRole_Id().equals("2") && user != null) {
             chain.doFilter(request, response);
             return;
         }

@@ -63,6 +63,7 @@
                 border: 50%;
             }
         </style>
+
     </head>
     <body class="sb-nav-fixed">
         <%@include file="components/account.jsp" %>
@@ -81,7 +82,7 @@
                                 <div class="col-md-5">
                                     <div class="p-3 py-5">
                                         <div class="col-md-12">Loại
-                                            <select class="form-control"  name="type" aria-label="Default select example" >
+                                            <select class="form-control" id="selectType" name="type" aria-label="Default select example" >
                                                 <c:forEach items="${sessionScope.listTypeSetting}" var="c">
                                                     <option value="${c.id}">
                                                         ${c.name}
@@ -94,6 +95,16 @@
                                 <div class="col-md-7">
                                     <div class="p-3 py-5">
                                         <div class="row mt-16">
+                                            <div class="col-md-12" id="box" name="divBox">
+                                                <select class="form-control" name="gender" aria-label="Default select example" >
+                                                    <option>
+                                                        Nam
+                                                    </option>
+                                                    <option>
+                                                        Nữ
+                                                    </option>
+                                                </select>
+                                            </div>
                                             <div class="col-md-12">Giá trị<input type="text" name="value" class="form-control"  value="${setting.value}"></div>
                                             <div class="col-md-12">Miêu tả<input type="text" name="description" class="form-control" value="${setting.description}"/></div>                                        
 
@@ -122,6 +133,19 @@
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script>
+            const el = document.getElementById('selectType');
+            const test = document.querySelector(".form-control");
+            const box = document.getElementById('box');
+            el.onchange = (e) => {
+                console.log(e.target.value);
+                if(e.target.value==1){
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            };
+        </script>
     </body>
 </html>
 

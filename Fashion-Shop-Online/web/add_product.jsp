@@ -112,6 +112,16 @@
                                                     </c:forEach>
                                                 </select>
                                             </div>
+                                            <div class="col-md-12"> Giới tính
+                                                <select class="form-control" name="gender" aria-label="Default select example">
+                                                    <option value="Nam">
+                                                        Nam
+                                                    </option>
+                                                    <option value="Nữ">
+                                                        Nữ
+                                                    </option>
+                                                </select>
+                                            </div>
                                             <div class="col-md-12">Trạng thái
                                                 <br/>
                                                 <input name="status" type="radio" value="1" checked="" />&nbsp;Hiện

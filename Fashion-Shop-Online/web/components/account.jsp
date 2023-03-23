@@ -1,8 +1,4 @@
-<%-- 
-    Document   : account
-    Created on : Jun 3, 2022, 6:30:16 PM
-    Author     : son22
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Notification User -->
 <c:if test="${notification !=null}">

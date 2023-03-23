@@ -48,6 +48,7 @@ public class ProductDetailController extends HttpServlet {
             List<Category> l = c.getAllCategory();
             session.setAttribute("listCategories", l);
             request.setAttribute("product", p);
+            System.out.println(p.getGender());
             request.getRequestDispatcher("update_product_new.jsp").forward(request, response);
 
         }

@@ -29,6 +29,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
 /**
  *
@@ -100,7 +101,7 @@ public class EditUserProfileController extends HttpServlet {
 
         try {
             // Parse the request
-            List<FileItem> items = upload.parseRequest((RequestContext) request);
+            List<FileItem> items = upload.parseRequest(new ServletRequestContext(request));
             // Process the uploaded items
             Iterator<FileItem> iter = items.iterator();
             HashMap<String, String> fields = new HashMap<>();
@@ -118,7 +119,7 @@ public class EditUserProfileController extends HttpServlet {
                         break;
                     } else {
                         Path path = Paths.get(filename);
-                        String storePath = servletContext.getRealPath("../../web/images/avatar");
+                        String storePath = servletContext.getRealPath("/images/avatar");
                         File uploadFile = new File(storePath + "/" + path.getFileName());
                         item.write(uploadFile);
                         url_avatar += filename;
@@ -135,16 +136,16 @@ public class EditUserProfileController extends HttpServlet {
             int uid = Integer.parseInt(uid_raw);
 
             ud.editUserProfile(uname, url_avatar, ugender, umobile, uaddress, uid);
-            
+
             User u = ud.getUserById(uid);
             session.setAttribute("us", u);
             TimeUnit.SECONDS.sleep(2);
             response.sendRedirect("home");
-            
+
         } catch (FileUploadException ex) {
-
+            System.out.println(ex);
         } catch (Exception ex) {
-
+            System.out.println(ex);
         }
 
     }

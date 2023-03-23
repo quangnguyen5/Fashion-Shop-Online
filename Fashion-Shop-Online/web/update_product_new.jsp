@@ -70,7 +70,7 @@
         <%@include file="components/account.jsp" %>
         <nav class="sb-topnav navbar navbar-expand navbar-light bg-light    ">
             <!-- Navbar Brand-->
-            <a class="navbar-brand me-5 ti-joomla" href="home" style="padding-left: 2%">KingsMan</a>
+            <a class="navbar-brand me-5 ti-joomla" href="home" style="padding-left: 2%">BeautyLab</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -167,6 +167,16 @@
                                                             ${list.name}
                                                         </option>
                                                     </c:forEach>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12"> Giới tính
+                                                <select class="form-control" name="gender" aria-label="Default select example">
+                                                    <option value="Nam" ${product.gender == "Nam" ? "Selected" : ""}>
+                                                        Nam
+                                                    </option>
+                                                    <option value="Nữ" ${product.gender == "Nữ" ? "Selected" : ""}>
+                                                        Nữ
+                                                    </option>
                                                 </select>
                                             </div>
                                             <div class="col-md-12">Trạng thái
