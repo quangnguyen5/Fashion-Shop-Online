@@ -119,6 +119,7 @@
                     <div>
                         <input type="text" name="key" value="${key}" placeholder="Tìm kiếm sản phẩm..." class="filter-search__control" >
                         <button type="submit" class="button-search"></button>
+                        <input type="hidden" name="genderSave" value="${gender}">
                     </div>
 
                 </form>
@@ -126,11 +127,11 @@
 
             <div class="col-md-2">
                 <select class="dropdown-font-new" aria-label="Default select example" onchange="location = this.value;" name="Sắp xếp">
-                    <option value="list?${historyKey}${historyValue}${historyType}" ${categoryId == 0 ? "Selected" : ""}>
+                    <option value="list?${historyKey}${historyValue}${historyType}&gender=${c.gender}" ${categoryId == 0 ? "Selected" : ""}>
                         Tất Cả
                     </option>
                     <c:forEach items="${sessionScope.listCategories}" var="c">
-                        <option value="list?${historyKey}&categoryId=${c.id}${historyValue}${historyType}" ${categoryId == c.id ? "Selected" : ""}>
+                        <option value="list?${historyKey}&categoryId=${c.id}${historyValue}${historyType}&gender=${c.gender}" ${categoryId == c.id ? "Selected" : ""}>
                             ${c.name}
                         </option>
                     </c:forEach>
@@ -138,16 +139,16 @@
             </div>
             <div class="col-md-2">
                 <select class="dropdown-font-new" aria-label="Default select example" onchange="location = this.value;">
-                    <option value="list?${historyKey}${historyCategoryId}&type=desc" ${type eq "desc" ? "Selected" : ""}>
+                    <option value="list?${historyKey}${historyCategoryId}&type=desc&gender=${gender}" ${type eq "desc" ? "Selected" : ""}>
                         Mới Nhất
                     </option>
-                    <option value="list?${historyKey}${historyCategoryId}" ${type == null ? "Selected" : ""}>
+                    <option value="list?${historyKey}${historyCategoryId}&gender=${gender}" ${type == null ? "Selected" : ""}>
                         Cũ Nhất
                     </option> 
-                    <option value="list?${historyKey}${historyCategoryId}&value=original_prices" ${value eq "original_prices" ? "Selected" : ""}>
+                    <option value="list?${historyKey}${historyCategoryId}&value=original_prices&gender=${gender}" ${value eq "original_prices" ? "Selected" : ""}>
                         Giá tăng dần
                     </option>
-                    <option value="list?${historyKey}${historyCategoryId}&value=original_prices&type=desc" ${value eq "original_prices" && type eq "desc" ? "Selected" : ""}>
+                    <option value="list?${historyKey}${historyCategoryId}&value=original_prices&type=desc&gender=${gender}" ${value eq "original_prices" && type eq "desc" ? "Selected" : ""}>
                         Giá giảm dần
                     </option> 
                 </select>

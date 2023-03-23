@@ -304,4 +304,28 @@ public class SettingDAO extends DBContext {
         }
     }
 
+    public int addCategory(String value, int status, String gender) {
+        String sql = "INSERT INTO [dbo].[Category]\n"
+                + "           ([category_name]\n"
+                + "           ,[status]\n"
+                + "           ,[gender])"
+                + "     VALUES\n"
+                + "           (?,?,?)";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st.setString(1, value);
+            st.setInt(2, status);
+            st.setString(3, gender);
+            st.executeUpdate();
+            ResultSet rs = st.getGeneratedKeys();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
 }

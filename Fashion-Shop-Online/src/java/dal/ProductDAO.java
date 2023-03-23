@@ -104,7 +104,7 @@ public class ProductDAO extends DBContext {
 
     public Product getProductNew() {
         List<Product> list = new ArrayList<>();
-        String sql = "select top 1 * from Product order by update_date desc";
+        String sql = "select top 1 * from Product where status = 1 order by update_date desc";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -537,7 +537,7 @@ public class ProductDAO extends DBContext {
 
     public Product getProductNew(String gender) {
         List<Product> list = new ArrayList<>();
-        String sql = "select top 1 * from Product where gender = N'" + gender + "' order by update_date desc";
+        String sql = "select top 1 * from Product where gender = N'" + gender + "' and status = 1 order by update_date desc";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();

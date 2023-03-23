@@ -42,11 +42,13 @@ public class AddSettingController extends HttpServlet {
             String value = request.getParameter("value");
             String description = request.getParameter("description");
             int status = Integer.parseInt(request.getParameter("status"));
+            String gender = request.getParameter("gender");
+            System.out.println(gender);
 
             SettingDAO sd = new SettingDAO();
             
             if (type == 1) {
-                order = sd.addCategory(value, status);
+                order = sd.addCategory(value, status, gender);
             } else if (type == 2) {
                 order = sd.addCategoryBlog(value, status);
             } else if (type == 3) {

@@ -97,10 +97,10 @@
                                         <div class="row mt-16">
                                             <div class="col-md-12" id="box" name="divBox">
                                                 <select class="form-control" name="gender" aria-label="Default select example" >
-                                                    <option>
+                                                    <option value="Nam">
                                                         Nam
                                                     </option>
-                                                    <option>
+                                                    <option value="Nữ">
                                                         Nữ
                                                     </option>
                                                 </select>

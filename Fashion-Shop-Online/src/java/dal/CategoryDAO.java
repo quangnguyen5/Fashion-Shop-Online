@@ -30,6 +30,7 @@ public class CategoryDAO extends DBContext {
                 Category c = Category.builder()
                         .id(rs.getInt(1))
                         .name(rs.getString(2))
+                        .gender(rs.getString(4))
                         .build();
 
                 list.add(c);

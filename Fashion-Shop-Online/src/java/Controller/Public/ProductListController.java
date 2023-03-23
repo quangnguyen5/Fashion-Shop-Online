@@ -41,7 +41,7 @@ public class ProductListController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             final int PAGE_SIZE = 8;  // Set total product each page
             HttpSession session = request.getSession();
@@ -49,7 +49,7 @@ public class ProductListController extends HttpServlet {
             ProductDAO p = new ProductDAO();
             String status = "!= -1";
             String gender = request.getParameter("gender");
- 
+            System.out.println(gender);
             // Set page
             int page = 1;
             String strPage = request.getParameter("page");
@@ -57,7 +57,6 @@ public class ProductListController extends HttpServlet {
                 page = Integer.parseInt(strPage);
             }
 
-            
             // Set key for search 
             String searchKey = "";
             String strSearchKey = request.getParameter("key");
@@ -83,7 +82,7 @@ public class ProductListController extends HttpServlet {
             if (strValue != null) {
                 value = strValue;
             }
-            
+
             // Set total page 
             int totalProduct = p.getTotalProduct(searchKey, categoryId, "=1", gender);
             int totalPage = totalProduct / PAGE_SIZE;
@@ -95,15 +94,17 @@ public class ProductListController extends HttpServlet {
             List<Product> listProduct = p.getProductWithPaging(page, PAGE_SIZE, searchKey, categoryId, type, value, "=1", gender);
             List<Category> l = c.getAllCategory();
             Product pNew = p.getProductNew(gender);
+            Product pNewAll = p.getProductNew();
             Slider listSlider_HomePageFirst = new SliderDAO().getFirstSlider();
             List<Slider> listSlider_HomePageAll = new SliderDAO().getALLSlider();
-            
+            request.setAttribute("page", page);
+            request.setAttribute("totalPage", totalPage);
             // Set param request to jsp page
             session.setAttribute("pNew", pNew);
-//            session.setAttribute("listCategories", l);
+            session.setAttribute("listCategories", l);
             session.setAttribute("listProduct", listProduct);
             session.setAttribute("historyUrl", "list");
-            String history = "list?page="+page;
+            String history = "list?page=" + page;
             if (strSearchKey != null) {
                 history = history + "&key=" + strSearchKey;
                 request.setAttribute("historyKey", "&key=" + strSearchKey);
@@ -123,18 +124,45 @@ public class ProductListController extends HttpServlet {
                 history = history + "&type=" + strType;
                 request.setAttribute("historyType", "&type=" + strType);
                 request.setAttribute("type", strType);
-            }                    
-            if(gender != null){
-                history = history +"&gender=" + gender;
+            }
+            if (gender != null) {
+                history = history + "&gender=" + gender;
                 request.setAttribute("historyGender", "&gender=" + gender);
                 request.setAttribute("gender", gender);
             }
-            request.setAttribute("sliderFirst", listSlider_HomePageFirst);           
-            request.setAttribute("listSlider_HomePageAll", listSlider_HomePageAll);
-            request.setAttribute("page", page);
-            request.setAttribute("totalPage", totalPage);
-            session.setAttribute("historyUrl", history);
+            int totalProductAll = p.getTotalProduct(searchKey, categoryId, "=1");
+            int totalPageAll = totalProductAll / PAGE_SIZE;
+            if (totalProductAll % PAGE_SIZE != 0) {
+                totalPageAll += 1;
+            }
             
+            System.out.println("check" + totalPageAll);
+            System.out.println(gender);
+            System.out.println(strSearchKey);
+            if (gender.isEmpty() && strSearchKey == null) {
+                List<Product> listProductAll = p.getProductWithPaging(page, PAGE_SIZE, searchKey, categoryId, type, value, "=1");
+                session.setAttribute("listProduct", listProductAll);
+
+                request.setAttribute("page", page);
+                request.setAttribute("totalPage", totalPageAll);
+                session.setAttribute("pNew", pNewAll);
+                System.out.println("check");
+            }
+            if (gender.isEmpty() && strSearchKey != null) {
+                List<Product> listProductAll = p.getProductWithPaging(page, PAGE_SIZE, searchKey, categoryId, type, value, "=1");
+                session.setAttribute("listProduct", listProductAll);
+
+                request.setAttribute("page", page);
+                request.setAttribute("totalPage", totalPageAll);
+                session.setAttribute("pNew", pNewAll);
+                System.out.println("check");
+            }
+            
+            request.setAttribute("sliderFirst", listSlider_HomePageFirst);
+            request.setAttribute("listSlider_HomePageAll", listSlider_HomePageAll);
+
+            session.setAttribute("historyUrl", history);
+
             // Request
             request.getRequestDispatcher("product.jsp").forward(request, response);
         }

@@ -67,6 +67,7 @@
                 <form class="d-flex me-5" action="list">
                     <input class="form-control me-2" type="text" name ="key" placeholder="Tìm kiếm sản phẩm..." aria-label="Search" value="${key}" id="" required class="form-control">
                     <button class="btn btn-outline-danger" type="submit">Tìm</button>
+                    <input type="hidden" name="gender" value="${gender}">
                 </form>
 
 
@@ -111,9 +112,9 @@
                     </c:if>
                     <!-- begin icon header -->
                     <c:if test="${sessionScope.us.role_Id == 1 || sessionScope.us == null}">
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-icon py-2 px-4" href="carts" tabindex="-1" aria-disabled="true"><i class="ti-shopping-cart"></i></a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-icon py-2 px-4" href="carts" tabindex="-1" aria-disabled="true"><i class="ti-shopping-cart"></i></a>
+                        </li>
                     </c:if>
                 </ul>
 
