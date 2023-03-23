@@ -189,7 +189,9 @@
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-5"><img class="card-img-top mb-5 mb-md-0" style="max-width: 450px" src="${product.image}" alt="..." /></div>
+
                     <div class="col-md-7">
+
                         <form action="addcart" id="addcart" method="GET">
 
 
@@ -288,10 +290,18 @@
                                     <input type="hidden" name="productId" value="${product.id}" />
                                     <div id="increment" onclick="stepper(this)"><b>+</b></div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <input class="btn btn-outline-dark" type="submit" style="font-size: 20px" value="Thêm vào giỏ hàng">                                     
+                                <c:if test="${sessionScope.us == null}" >
+                                    <div class="col-lg-6">
+                                        <input class="btn btn-outline-dark" data-toggle="modal"  data-target="#loginModal"   type="button" style="font-size:20px" value="Thêm vào giỏ hàng">
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${sessionScope.us != null}" >
+                                        <div class="col-lg-6">
+                                            <input class="btn btn-outline-dark" type="submit" style="font-size: 20px" value="Thêm vào giỏ hàng">                                     
+                                        </div>
+                                    </c:if>
+
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -325,7 +335,7 @@
                                         </div>
                                         <div>
                                             Giảm giá:
-                                        <span><fmt:formatNumber value="${product.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
+                                            <span><fmt:formatNumber value="${product.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
                                         </div>
                                     </div>
                                 </div>
