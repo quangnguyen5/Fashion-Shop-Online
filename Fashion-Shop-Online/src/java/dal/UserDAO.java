@@ -68,7 +68,7 @@ public class UserDAO extends DBContext {
 
     public void register(String fullName, String password, String gender, String email, String mobile) {
         String sql = "insert into [User]\n"
-                + "values (?,?,0,?,?,?,0,0,'1')";
+                + "values (?,?,0,?,?,?,0,1,'1')";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, fullName);
