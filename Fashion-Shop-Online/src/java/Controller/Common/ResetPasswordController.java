@@ -89,7 +89,7 @@ public class ResetPasswordController extends HttpServlet {
             try {
                 String smtpServer = "smtp.gmail.com";
                 String to = user.getEmail();
-                String from = "khangdthe151162@fpt.edu.vn";
+                String from = "beautylabg4@gmail.com";
                 String subject = "Re-issue old password\n";
                 String body =
                         "<!DOCTYPE html>\n"
@@ -109,7 +109,7 @@ public class ResetPasswordController extends HttpServlet {
                         + "</body>\n"
                         + "\n"
                         + "</html>";
-                String password = "khang0974421459";
+                String password = "kgymottpwsqatula";
                 SendMailOK.send(smtpServer, to, from, password, subject, body);
 
             } catch (Exception ex) {
