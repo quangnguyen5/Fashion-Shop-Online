@@ -13,14 +13,12 @@
                         <a class="nav-link active" aria-current="page" href="home">Trang chủ</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="list">Sản Phẩm</a>
+                        <a class="nav-link" href="home">Sản Phẩm</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="blog">Blog</a>
                     </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
+   
 
 
                 </ul>
