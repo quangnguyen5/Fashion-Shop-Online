@@ -293,15 +293,15 @@
                                 <c:if test="${sessionScope.us == null}" >
                                     <div class="col-lg-6">
                                         <input class="btn btn-outline-dark" data-toggle="modal"  data-target="#loginModal"   type="button" style="font-size:20px" value="Thêm vào giỏ hàng">
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${sessionScope.us != null}" >
-                                        <div class="col-lg-6">
-                                            <input class="btn btn-outline-dark" type="submit" style="font-size: 20px" value="Thêm vào giỏ hàng">                                     
-                                        </div>
-                                    </c:if>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sessionScope.us != null}" >
+                                    <div class="col-lg-6">
+                                        <input class="btn btn-outline-dark" type="submit" style="font-size: 20px" value="Thêm vào giỏ hàng">                                     
+                                    </div>
+                                </c:if>
 
-                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -328,15 +328,22 @@
                                         <!-- Product name-->
                                         <h5 class="fw-bolder">${p.name}</h5>
                                         <!-- Product price-->
-                                        <div style="margin-bottom: 1.7%">
-                                            Giá gốc: 
-                                            <span class="text-decoration-line-through" ><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
-
-                                        </div>
-                                        <div>
-                                            Giảm giá:
-                                            <span><fmt:formatNumber value="${product.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
-                                        </div>
+                                        <c:if test="${product.sale_price == 0 || product.sale_price == null}">
+                                            <div style="margin-bottom: 1.7%">
+                                                Giá gốc: 
+                                                <span ><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${product.sale_price != 0}">
+                                            <div style="margin-bottom: 1.7%">
+                                                Giá gốc: 
+                                                <span class="text-decoration-line-through"><fmt:formatNumber value="${product.original_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
+                                            </div>
+                                            <div>
+                                                Giảm giá:
+                                                <span><fmt:formatNumber value="${product.sale_price}" type="currency" pattern="#,##0.00;-VND#,##0.00VN" maxFractionDigits="0" /> VND</span>
+                                            </div>
+                                        </c:if>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
