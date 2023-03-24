@@ -112,8 +112,8 @@
                     data: {
                     labels: [<c:forEach  items="${listCategoryProduct}" var="category" > "${category.name}",</c:forEach>],
                             datasets: [{
-                            data: [${totalProduct1}, ${totalProduct2}, ${totalProduct3}, ${totalProduct4}],
-                                    backgroundColor: ['#ffc107', '#28a745', '#7e3bad', '#d91a53'],
+                            data: [${totalProduct1}, ${totalProduct2}, ${totalProduct3}, ${totalProduct4}, ${totalProduct5}, ${totalProduct6}, ${totalProduct7}, ${totalProduct8}],
+                                    backgroundColor: ['#ffc107', '#28a745', '#7e3bad', '#d91a53','#b322cf','#6d22cf','#22b1cf','#2eee1e'],
                             }],
                     },
             });

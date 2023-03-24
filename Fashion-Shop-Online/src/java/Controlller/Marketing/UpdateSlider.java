@@ -29,6 +29,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
 /**
  *
@@ -109,7 +110,7 @@ public class UpdateSlider extends HttpServlet {
 
         try {
             // Parse the request
-            List<FileItem> items = upload.parseRequest((RequestContext) request);
+            List<FileItem> items = upload.parseRequest(new ServletRequestContext(request));
             // Process the uploaded items
             Iterator<FileItem> iter = items.iterator();
             HashMap<String, String> fields = new HashMap<>();
@@ -127,7 +128,7 @@ public class UpdateSlider extends HttpServlet {
                         break;
                     } else {
                         Path path = Paths.get(filename);
-                        String storePath = servletContext.getRealPath("../../web/images/slider");
+                        String storePath = servletContext.getRealPath("/images/slider");
                         File uploadFile = new File(storePath + "/" + path.getFileName());
                         item.write(uploadFile);
                         url_thumbnail += filename;

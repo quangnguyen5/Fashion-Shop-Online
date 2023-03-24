@@ -66,9 +66,13 @@ public class AdminDashboardController extends HttpServlet {
         int totalProduct2 = pd.getTotalProduct(2, end);
         int totalProduct3 = pd.getTotalProduct(3, end);
         int totalProduct4 = pd.getTotalProduct(4, end);
+        int totalProduct5 = pd.getTotalProduct(5, end);
+        int totalProduct6 = pd.getTotalProduct(6, end);
+        int totalProduct7 = pd.getTotalProduct(7, end);
+        int totalProduct8 = pd.getTotalProduct(8, end);
 
         List<Category> listCategoryProduct = ctd.getAllCategory();
-        
+
         // set chart revenue
         List<Chart> listChartRevenueArea = od.getChartRevenueArea(salerId, start, day);
         int maxListChartRevenueArea = -1;
@@ -78,7 +82,7 @@ public class AdminDashboardController extends HttpServlet {
             }
         }
         maxListChartRevenueArea = (maxListChartRevenueArea / 1000000 + 1) * 1000000;
-        
+
         // set chart customer
         List<Chart> listChartCustomer = cd.getChartCustomerArea(start, day);
         int maxListChartCustomerArea = -1;
@@ -88,7 +92,7 @@ public class AdminDashboardController extends HttpServlet {
             }
         }
         maxListChartCustomerArea = (maxListChartCustomerArea / 10 + 1) * 10;
-        
+
         // set chart avg rated
         List<ChartStar> listChartAvgStar = fd.getChartAvgStar(start, day);
 
@@ -97,16 +101,19 @@ public class AdminDashboardController extends HttpServlet {
         request.setAttribute("totalProduct2", totalProduct2);
         request.setAttribute("totalProduct3", totalProduct3);
         request.setAttribute("totalProduct4", totalProduct4);
-        
+        request.setAttribute("totalProduct5", totalProduct5);
+        request.setAttribute("totalProduct6", totalProduct6);
+        request.setAttribute("totalProduct7", totalProduct7);
+        request.setAttribute("totalProduct8", totalProduct8);
         
         request.setAttribute("listCategoryProduct", listCategoryProduct);
-        
+
         request.setAttribute("listChartRevenueArea", listChartRevenueArea);
         request.setAttribute("maxListChartRevenueArea", maxListChartRevenueArea);
-        
+
         request.setAttribute("listChartCustomer", listChartCustomer);
         request.setAttribute("maxListChartCustomerArea", maxListChartCustomerArea);
-        
+
         request.setAttribute("listChartAvgStar", listChartAvgStar);
         request.setAttribute("start", start);
         request.setAttribute("end", end);
