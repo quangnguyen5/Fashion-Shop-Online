@@ -26,7 +26,7 @@
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/ckfinder/ckfinder.js"></script>
-       
+
         <style>
             .payment-method__item-name {
                 font-size: 20px;
@@ -64,82 +64,92 @@
                 height: 10px;
                 width: 10px;
                 border: 50%;
-        </style>
-    </head>
-    <body class="sb-nav-fixed">
-        <%@include file="components/account.jsp" %>
+            </style>
+        </head>
+        <body class="sb-nav-fixed">
+            <%@include file="components/account.jsp" %>
 
-        <%@include file="components/manager-header.jsp" %>
-        <div id="layoutSidenav">
-            <%@include file="components/MKT-left-board.jsp" %>
-            <div class="groundy" id="layoutSidenav_content">
-                <main>
-                    <div class="container rounded bg-white mt-5 mb-5">
-                        <form action="add_product" method="post" enctype="multipart/form-data">
-                            <div class="row"  style="margin-top: 8%;">
-                                <div class="p-4">
+            <%@include file="components/manager-header.jsp" %>
+            <div id="layoutSidenav">
+                <%@include file="components/MKT-left-board.jsp" %>
+                <div class="groundy" id="layoutSidenav_content">
+                    <main>
+                        <div class="container rounded bg-white mt-5 mb-5">
+                            <form action="add_product" method="post" enctype="multipart/form-data">
+                                <div class="row"  style="margin-top: 8%;">
+                                    <div class="p-4">
 
-                                    <h4 class="text-center">Thêm sản phẩm</h4>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="p-3 py-5">
-                                        <div class="col-md-12">Tên sản phẩm<input type="text" class="form-control"  name="name"></div>
-                                        <div class="col-md-12">Thông tin rút gọn<textarea class="form-control" name="brief_infor"  rows="2" ></textarea></div>
-                                        <div class="col-md-12">Nội dung
+                                        <h4 class="text-center">Thêm sản phẩm</h4>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="p-3 py-5">
+                                            <div class="col-md-12">Tên sản phẩm<input type="text" class="form-control"  name="name" required=""></div>
+                                            <div class="col-md-12">Thông tin rút gọn<textarea class="form-control" name="brief_infor"  rows="2" required="" ></textarea></div>
+                                            <div class="col-md-12">Nội dung
 
-                                            <textarea cols="20" rows="40" id="editor" name="desciption"></textarea>
+                                                <textarea cols="20" rows="40" id="editor" name="desciption" required=""></textarea>
 
 
-                                            <script>
-                                                var editor = CKEDITOR.replace('editor');
-                                                CKFinder.setupCKEditor(editor, '<%=request.getContextPath()%>/ckfinder/');
-                                            </script>
+                                                <script>
+                                                    var editor = CKEDITOR.replace('editor');
+                                                    CKFinder.setupCKEditor(editor, '<%=request.getContextPath()%>/ckfinder/');
+                                                </script>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="p-3 py-5">
-                                        <div class="row mt-16">
-                                            <div class="col-md-12">Giá gốc<input name="original_price" type="number" class="form-control" /></div>                                        
-                                            <div class="col-md-12">Giá khuyến mãi<input name="sale_price" type="number" class="form-control" /></div>                                        
-                                            <div class="col-md-12">Số lượng<input name="quantity" type="number" class="form-control" /></div>                                        
-                                            <div class="col-md-12">Danh mục 
-                                                <select class="form-control"  name="categoryId" aria-label="Default select example" >
-                                                    <c:forEach items="${sessionScope.listCategories}" var="list">
-                                                        <option value="${list.id}" ${list.id == product.category_id ? "Selected" : ""}>
-                                                            ${list.name}
+                                    <div class="col-md-4">
+                                        <div class="p-3 py-5">
+                                            <div class="row mt-16">
+                                                <div class="col-md-12">Giá gốc<input name="original_price" type="number" class="form-control" required="" /></div>                                        
+                                                <div class="col-md-12">Giá khuyến mãi<input name="sale_price" type="number" class="form-control" required="" value="0"/></div>                                        
+                                                <div class="col-md-12">Số lượng<input name="quantity" type="number" class="form-control" required="" /></div>                                        
+                                                <div class="col-md-12">Danh mục 
+                                                    <select class="form-control"  name="categoryId" aria-label="Default select example" >
+                                                        <c:forEach items="${sessionScope.listCategories}" var="list">
+                                                            <option value="${list.id}" ${list.id == product.category_id ? "Selected" : ""}>
+                                                                ${list.name}
+                                                            </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12"> Giới tính
+                                                    <select class="form-control" name="gender" aria-label="Default select example">
+                                                        <option value="Nam">
+                                                            Nam
                                                         </option>
-                                                    </c:forEach>
-                                                </select>
+                                                        <option value="Nữ">
+                                                            Nữ
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12">Trạng thái
+                                                    <br/>
+                                                    <input name="status" type="radio" value="1" checked="" />&nbsp;Hiện
+                                                    <input name="status" type="radio" value="0"  />&nbsp;Ẩn
+                                                </div>
+                                                <div class="col-md-12">Hình thu nhỏ<input type="file" name="thumbnail" class="form-control" placeholder="Thumbnail" value=""></div>
                                             </div>
-                                            <div class="col-md-12">Trạng thái
-                                                <br/>
-                                                <input name="status" type="radio" value="1" checked="" />&nbsp;Hiện
-                                                <input name="status" type="radio" value="0"  />&nbsp;Ẩn
-                                            </div>
-                                            <div class="col-md-12">Hình thu nhỏ<input type="file" name="thumbnail" class="form-control" placeholder="Thumbnail" value=""></div>
+
                                         </div>
 
                                     </div>
 
+                                    <div class="mt-5 p-4 text-center">
+                                        <a href="${historyUrl}"><button class="btn btn-outline-dark" type="button">Quay lại</button></a>
+                                        <input class="btn btn-dark" type="submit" value="Lưu">
+                                    </div>
                                 </div>
-
-                                <div class="mt-5 p-4 text-center">
-                                    <a href="${historyUrl}"><button class="btn btn-outline-dark" type="button">Quay lại</button></a>
-                                    <input class="btn btn-dark" type="submit" value="Lưu">
-                                </div>
-                            </div>
-                        </form> 
-                    </div>
-                </main>
+                            </form> 
+                        </div>
+                    </main>
+                </div>
             </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
-    </body>
-</html>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            <script src="js/scripts.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+            <script src="js/datatables-simple-demo.js"></script>
+        </body>
+    </html>
 
 

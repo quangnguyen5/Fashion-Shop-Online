@@ -64,11 +64,10 @@ public class AddProductController extends HttpServlet {
         int original_price = Integer.parseInt(request.getParameter("original_price"));
         int sale_price = Integer.parseInt(request.getParameter("sale_price"));
         String imageUrl = "images/product/" + request.getParameter("image");
-
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
         int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId);
         p.AddImageProduct(new_id, imageUrl);
-        
+
         response.sendRedirect("marketingproductlist");
     }
 
@@ -142,7 +141,7 @@ public class AddProductController extends HttpServlet {
 
                 }
             }
-            
+
             ProductDAO p = new ProductDAO();
             String name = fields.get("name");
             String desciption = fields.get("desciption");
@@ -153,8 +152,9 @@ public class AddProductController extends HttpServlet {
             int sale_price = Integer.parseInt(fields.get("sale_price"));
 
             int categoryId = Integer.parseInt(fields.get("categoryId"));
-
-            int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId);
+            String gender = fields.get("gender");
+            System.out.println("genderadd: " + gender);
+            int new_id = p.addNewProduct(name, desciption, brief_infor, quantity, status, original_price, sale_price, categoryId,gender);
             p.AddImageProduct(new_id, url_thumbnail);
             response.sendRedirect("marketingproductlist");
         } catch (FileUploadException ex) {

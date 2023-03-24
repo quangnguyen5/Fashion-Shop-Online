@@ -76,10 +76,15 @@ public class LoginController extends HttpServlet {
             request.setAttribute("notification", "Sai email hoặc mật khẩu");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else {
-
+            if (!u.isStatus()) {
+                request.setAttribute("notification", "Tài khoản của bạn đã bị khóa");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+                return;
+            }
             session.setAttribute("us", u);
             response.sendRedirect(historyUrl);
         }
+
     }
 
     /**

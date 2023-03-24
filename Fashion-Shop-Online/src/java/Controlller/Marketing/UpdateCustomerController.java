@@ -56,6 +56,7 @@ public class UpdateCustomerController extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("us");
+            System.out.println(cmobile);
             cus.updateCustomer(cname, cemail, cmobile, cid);
             cus.updateHistory(cid, cemail, cname, cmobile, u.getUser_Id());
 
